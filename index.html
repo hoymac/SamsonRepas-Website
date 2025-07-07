@@ -1,425 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SamSonRepas Inc. - Authentic African & Canadian Cuisine</title>
-<style>
-  /* Reset */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff;
-    color: #333;
-    line-height: 1.6;
-  }
-  header {
-    background: #d35400;
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  }
-  header h1 {
-    font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 0.2rem;
-    letter-spacing: 1.2px;
-  }
-  header p {
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #f7c59f;
-  }
-  nav {
-    background: #e67e22;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-  nav a {
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  nav a:hover {
-    background: #f39c12;
-  }
-  main {
-    max-width: 960px;
-    margin: 2rem auto;
-    padding: 0 1rem 4rem;
-  }
-  section {
-    margin-bottom: 3.5rem;
-  }
-  h2 {
-    border-bottom: 3px solid #d35400;
-    padding-bottom: 0.3rem;
-    margin-bottom: 1.5rem;
-    color: #d35400;
-    font-size: 2rem;
-  }
-  p {
-    font-size: 1.15rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Menu Grid */
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.8rem;
-  }
-  .menu-item {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    background: white;
-    display: flex;
-    flex-direction: column;
-  }
-  .menu-item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  .menu-content {
-    padding: 1rem;
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .menu-content h4 {
-    margin: 0;
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-  .menu-content span {
-    font-weight: 700;
-    color: #d35400;
-  }
-
-  /* Testimonials */
-  .testimonials {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    background: #f9f6f2;
-    border-radius: 15px;
-    padding: 2rem 3rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  .testimonial-slide {
-    display: none;
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #555;
-    text-align: center;
-    min-height: 140px;
-  }
-  .testimonial-slide.active {
-    display: block;
-  }
-  .testimonial-author {
-    margin-top: 1rem;
-    font-weight: 700;
-    color: #d35400;
-    font-style: normal;
-  }
-  .testimonial-dots {
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-  .testimonial-dots button {
-    background: #d35400;
-    border: none;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    margin: 0 6px;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-  }
-  .testimonial-dots button.active,
-  .testimonial-dots button:hover {
-    opacity: 1;
-  }
-
-  /* Contact Form */
-  form {
-    max-width: 500px;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  input, textarea {
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    resize: vertical;
-    font-family: inherit;
-  }
-  button[type="submit"] {
-    background: #d35400;
-    border: none;
-    color: white;
-    font-weight: 700;
-    padding: 1rem;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button[type="submit"]:hover {
-    background: #e67e22;
-  }
-
-  /* Map */
-  .map-container {
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-  iframe {
-    width: 100%;
-    max-width: 600px;
-    height: 300px;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-
-  /* Responsive */
-  @media(max-width: 600px) {
-    .menu-content {
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: flex-start;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SamSonRepas Inc.</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+    }
+    header {
+      background: #d35400;
+      color: white;
+      padding: 20px;
+      text-align: center;
     }
     nav {
-      flex-direction: column;
-      gap: 0.8rem;
+      background: #f39c12;
+      padding: 10px;
+      text-align: center;
     }
-    header h1 {
-      font-size: 1.8rem;
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
     }
     h2 {
-      font-size: 1.6rem;
+      color: #d35400;
     }
-  }
-</style>
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .menu-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .menu-content {
+      padding: 15px;
+    }
+    .menu-content h4 {
+      margin: 0 0 10px;
+    }
+    .menu-content span {
+      color: #d35400;
+      font-weight: bold;
+    }
+    .quantity-selector {
+      margin-top: 10px;
+    }
+    .quantity-selector input {
+      width: 50px;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .add-to-cart-btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #d35400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cart {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ddd;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      max-width: 300px;
+    }
+    .cart h3 {
+      margin-top: 0;
+    }
+    .cart ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cart ul li {
+      margin-bottom: 10px;
+    }
+    .cart-total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .cart-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .cart-buttons button {
+      background-color: #d35400;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .confirmation {
+      background-color: #dff0d8;
+      color: #3c763d;
+      padding: 8px;
+      margin-top: 10px;
+      border-radius: 4px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>SamSonRepas Inc.</h1>
+    <p>Authentic African & Canadian Cuisine</p>
+  </header>
 
-<header>
-  <h1>SamSonRepas Inc.</h1>
-  <p>Authentic African & Canadian Cuisine</p>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About Us</a>
-  <a href="#menu">Menu</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#contact">Contact</a>
-  <a href="#location">Location</a>
-</nav>
-
-<main>
-
-  <section id="home">
-    <h2>Welcome to SamSonRepas</h2>
-    <p>Welcome to SamSonRepas, where we bring you the best of African and Canadian flavors. Our passion is to serve meals made with love and tradition, perfect for any occasion.</p>
-  </section>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      SamSonRepas Inc. was founded by Christopher Samson, a passionate food enthusiast with years of experience in the food industry. Christopher’s journey began at Burger King, where he gained valuable insights into fast-paced restaurant operations, customer service excellence, and the importance of consistency and quality.
-    </p>
-    <p>
-      Inspired by his heritage and a deep love for African cuisine, Christopher traveled to Africa to immerse himself in the rich culinary traditions of the continent. During his travels, he learned authentic cooking techniques and recipes firsthand, deepening his appreciation for the vibrant flavors and cultural significance of African food.
-    </p>
-    <p>
-      His passion is also fueled by his wife, who is of African descent, and whose family recipes and traditions inspire many of the dishes served at SamSonRepas Inc. Together, they blend family heritage and professional experience to bring delicious, comforting meals to their community.
-    </p>
-    <p>
-      At SamSonRepas, we also celebrate the multicultural spirit of Canada by including classic Canadian favorites like juicy steaks, hearty poutine, and sweet butter tarts on our menu. This unique combination of African and Canadian cuisines allows us to offer a diverse dining experience that caters to many tastes.
-    </p>
-    <p>
-      Christopher believes food is more than nourishment — it’s a way to connect people, celebrate culture, and share stories. With SamSonRepas, he offers dishes made from fresh, local ingredients that feel like home.
-    </p>
-    <p>
-      Thanks to Christopher’s dedication and the support of his team, SamSonRepas has become a beloved community spot known for authentic flavors and warm service. Christopher looks forward to welcoming you and sharing the tastes of Africa and Canada with every meal.
-    </p>
-  </section>
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#drinks">Drinks</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <section id="menu">
     <h2>Menu</h2>
-    <p>Our selection of authentic African and Canadian dishes, carefully prepared and served fresh.</p>
-
-    <h3>Starters</h3>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb3a?auto=format&fit=crop&w=400&q=80" alt="Plantain Fritters" />
-        <div class="menu-content">
-          <h4>Plantain Fritters (Akara)</h4>
-          <span>$7.50</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1601998581453-0286b81e4e16?auto=format&fit=crop&w=400&q=80" alt="Meat Pie" />
-        <div class="menu-content">
-          <h4>Meat Pie</h4>
-          <span>$8.50</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Pepper Soup" />
-        <div class="menu-content">
-          <h4>Pepper Soup (Spicy Broth)</h4>
-          <span>$9.00</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1616419742940-6ec84e4d0927?auto=format&fit=crop&w=400&q=80" alt="Maple Glazed Bacon Bites" />
-        <div class="menu-content">
-          <h4>Maple Glazed Bacon Bites</h4>
-          <span>$9.50</span>
-        </div>
-      </div>
-    </div>
-
-    <h3>Main Dishes</h3>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400&q=80" alt="Jollof Rice with Chicken" />
-        <div class="menu-content">
-          <h4>Jollof Rice with Chicken</h4>
-          <span>$14.00</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1576871337632-4ec1ec7c1874?auto=format&fit=crop&w=400&q=80" alt="Egusi Soup with Pounded Yam" />
-        <div class="menu-content">
-          <h4>Egusi Soup with Pounded Yam</h4>
-          <span>$17.00</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1543352634-40d760e7f76a?auto=format&fit=crop&w=400&q=80" alt="Suya" />
-        <div class="menu-content">
-          <h4>Suya (Spicy Grilled Beef Skewers)</h4>
-          <span>$13.00</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1563245376-4c601cb72184?auto=format&fit=crop&w=400&q=80" alt="Grilled Canadian Steak" />
-        <div class="menu-content">
-          <h4>Grilled Canadian Steak with Herb Butter</h4>
-          <span>$22.00</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1601312373401-c9f6da0b2d6f?auto=format&fit=crop&w=400&q=80" alt="Poutine" />
-        <div class="menu-content">
-          <h4>Poutine (Fries with Cheese Curds & Gravy)</h4>
-          <span>$12.00</span>
-        </div>
-      </div>
-    </div>
-
-    <h3>Desserts</h3>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=400&q=80" alt="Malva Pudding" />
-        <div class="menu-content">
-          <h4>Malva Pudding</h4>
-          <span>$8.00</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1562440499-67e7d3a25854?auto=format&fit=crop&w=400&q=80" alt="Chin Chin" />
-        <div class="menu-content">
-          <h4>Chin Chin (Crunchy Pastry)</h4>
-          <span>$7.50</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1606954409289-cbb8f87d285e?auto=format&fit=crop&w=400&q=80" alt="Butter Tarts" />
-        <div class="menu-content">
-          <h4>Butter Tarts</h4>
-          <span>$6.50</span>
-        </div>
-      </div>
-    </div>
-
-    <h3>Drinks</h3>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Zobo" />
-        <div class="menu-content">
-          <h4>Zobo (Hibiscus Drink)</h4>
-          <span>$5.00</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Palm Wine" />
-        <div class="menu-content">
-          <h4>Palm Wine</h4>
-          <span>$7.00</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1571127230657-2763cc301c27?auto=format&fit=crop&w=400&q=80" alt="Ginger Beer" />
-        <div class="menu-content">
-          <h4>Ginger Beer</h4>
-          <span>$5.50</span>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1567614389102-1404f81b41b6?auto=format&fit=crop&w=400&q=80" alt="Craft Canadian Beer" />
-        <div class="menu-content">
-          <h4>Craft Canadian Beer</h4>
-          <span>$7.50</span>
-        </div>
-      </div>
-    </div>
+    <div class="menu-grid" id="menu-section"></div>
   </section>
 
-  <section id="reviews" class="testimonials">
+  <section id="drinks">
+    <h2>Drinks</h2>
+    <div class="menu-grid" id="drink-section"></div>
+  </section>
+
+  <section id="reviews">
     <h2>Customer Reviews</h2>
+    <!-- You can add your reviews here or I can help build it too -->
+  </section>
 
-    <div class="testimonial-slide active">
-      <p>"I recently visited SamSonRepas Inc. and was absolutely blown away by the authentic flavors. The jollof rice was perfectly cooked with just the right amount of spices, and the chicken was tender and juicy. The atmosphere was warm and welcoming, making it a perfect spot for family dinners or casual meals."</p>
-      <div class="testimonial-author">— Amanda B.</div>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: samsonrepas@hotmail.com</p>
+    <p>Phone: 1-800-800-0000</p>
+    <p>Address: 142 Rue Saint-Redempteur, Gatineau, QC J8X 2R7</p>
+  </section>
+
+  <div class="cart" id="cart">
+    <h3>Shopping Cart</h3>
+    <ul id="cart-items"></ul>
+    <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+    <div class="cart-buttons">
+      <button onclick="checkoutCart()">Checkout</button>
+      <button onclick="clearCart()">Clear</button>
     </div>
+    <div class="confirmation" id="confirmation">Item added to cart!</div>
+  </div>
 
-    <div class="testimonial-slide">
-      <p>"The combination of African and Canadian dishes at SamSonRepas is truly unique. I especially enjoyed the grilled Canadian steak with herb butter — cooked to perfection! The staff were attentive and friendly, creating a dining experience that felt both special and comfortable."</p>
-      <div class="testimonial-author">— David T.</div>
-    </div>
+  <script>
+    const menuItems = [
+      { name: "Plantain Fritters (Akara)", price: 8.50, img: "https://images.unsplash.com/photo-1562967916-eb82221dfb3a" },
+      { name: "Jollof Rice with Chicken", price: 15.00, img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092" },
+      { name: "Egusi Soup with Pounded Yam", price: 18.00, img: "https://images.unsplash.com/photo-1576871337632-4ec1ec7c1874" },
+      { name: "Suya (Spicy Grilled Beef Skewers)", price: 14.00, img: "https://images.unsplash.com/photo-1543352634-40d760e7f76a" }
+    ];
 
-    <div class="testimonial-slide">
-      <p>"I’ve tried many places, but SamSonRepas stands out for its genuine taste and quality. Their Egusi soup brought me back to my roots, reminding me of home. Plus, the cozy atmosphere and great service make it a must-visit for anyone who appreciates real, heartfelt cooking."</p>
-      <div class="testimonial-author">— Sarah L.</div>
-    </div>
+    const drinks = [
+      { name: "Fanta", price: 2.50, img: "https://images.unsplash.com/photo-1588854337236-f82ab8f894d9" },
+      { name: "Coca-Cola", price: 2.50, img: "https://images.unsplash.com/photo-1617814071590-d3a20cc0ed3f" },
+      { name: "Ginger Ale", price: 2.50, img: "https://images.unsplash.com/photo-1602751581742-c442bdc4d8e8" },
+      { name: "Sprite", price: 2.50, img: "https://images.unsplash.com/photo-1584270354949-1e80f5bc4d1d" },
+      { name: "Malta", price: 3.00, img: "https://images.unsplash.com/photo-1612641963844-b2694f3a8486" },
+      { name: "Water", price: 1.50, img: "https://images.unsplash.com/photo-1587825140708-8a21f1f01373" },
+      { name: "Apple Juice", price: 2.50, img: "https://images.unsplash.com/photo-1615475700940-5b5b4d3e1e6b" },
+      { name: "Orange Juice", price: 2.50, img: "https://images.unsplash.com/photo-1552664730-d307ca884978" },
+      { name: "Pineapple Juice", price: 2.50, img: "https://images.unsplash.com/photo-1582719478148-fbc97b0b1d1d" },
+      { name: "Iced Tea", price: 2.50, img: "https://images.unsplash.com/photo-1590080876635-d91f428b5a57" }
+    ];
 
-    <div class="testimonial-slide">
-      <p>"The desserts at SamSonRepas are incredible! I had the Malva Pudding and Butter Tarts, both bursting with flavor. The fusion
+    const cart = [];
+
+    function renderItems(items, containerId) {
+      const container = document.getElementById(containerId);
+      items.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "menu-item";
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <div class="menu-content">
+            <h4>${item.name}</h4>
+            <span>$${item.price.toFixed(2)}</span>
+            <div class="quantity-selector">
+              <label>Qty: </label>
+              <input type="number" value="1" min="1" />
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        `;
+        const btn = div.querySelector(".add-to-cart-btn");
+        btn.addEventListener("click", () => {
+          const qty = parseInt(div.querySelector("input").value);
+          addToCart(item.name, item.price, qty);
+        });
+        container.appendChild(div);
+      });
+    }
+
+    function addToCart(name, price, qty) {
+      cart.push({ name, price, qty });
+      updateCart();
+      const conf = document.getElementById("confirmation");
+      conf.style.display = "block";
+      setTimeout(() => (conf.style.display = "none"), 2000);
+    }
+
+    function updateCart() {
+      const cartList = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      cartList.innerHTML = "";
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.qty;
+        const li = document.createElement("li");
+        li.textContent = `${item.qty} x ${item.name} - $${(item.price * item.qty).toFixed(2)}`;
+        cartList.appendChild(li);
+      });
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    function checkoutCart() {
+      alert("Thank you for your order! Total: $" + document.getElementById("cart-total").textContent);
+      clearCart();
+    }
+
+    function clearCart() {
+      cart.length = 0;
+      updateCart();
+    }
+
+    renderItems(menuItems, "menu-section");
+    renderItems(drinks, "drink-section");
+  </script>
+</body>
+</html>
