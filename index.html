@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SamSonRepas Inc.</title>
+  <title>SamSonRepas</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -42,7 +42,6 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
-      cursor: pointer;
     }
     nav a:hover {
       text-decoration: underline;
@@ -194,7 +193,7 @@
 </head>
 <body>
   <header>
-    <h1>SamSonRepas Inc.</h1>
+    <h1>SamSonRepas</h1>
     <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="logo" />
   </header>
 
@@ -208,7 +207,7 @@
 
   <!-- Home Page -->
   <section id="home">
-    <h2>Welcome to SamSonRepas Inc.</h2>
+    <h2>Welcome to SamSonRepas</h2>
     <p class="long-text">
       Experience the authentic taste of African cuisine blended with Canadian favorites in the heart of Gatineau, QC. Our founder Christopher Samson brings years of experience from working at Burger King and has traveled extensively across Africa to master traditional dishes. With a wife of African descent inspiring our flavors, we proudly serve a menu that celebrates rich heritage and fresh local ingredients.
     </p>
@@ -258,14 +257,20 @@
   <section id="about" style="display:none;">
     <h2>About Us</h2>
     <p class="long-text">
-      Christopher Samson, our founder, brings over a decade of food service experience, having worked at Burger King in Canada. His passion for food led him to travel extensively across Africa, immersing himself in the culinary traditions and mastering authentic recipes. Inspired by his African-descended wife, SamSonRepas Inc. was born to celebrate the rich flavors and culture of Africa while embracing Canadian favorites. Our mission is to provide a welcoming space where diverse communities can come together and enjoy exceptional meals crafted with love and care.
+      Christopher Samson, our founder, brings over a decade of food service experience, having worked at Burger King in Canada. His passion for food led him to travel extensively across Africa, immersing himself in the culinary traditions and mastering authentic recipes. Inspired by his African-descended wife, SamSonRepas was born to celebrate the rich flavors and culture of Africa while embracing Canadian favorites. Our mission is to provide a welcoming space where diverse communities can come together and enjoy exceptional meals crafted with love and care.
     </p>
+    <p class="long-text" style="margin-top:20px;">
+      At SamSonRepas, we believe food is more than just nourishment — it’s a way to connect, celebrate heritage, and share stories. Our kitchen uses only fresh, locally sourced ingredients alongside authentic spices and recipes passed down through generations. We are committed to quality, sustainability, and bringing you the best flavors from Africa and Canada.
+    </p>
+    <img src="https://images.unsplash.com/photo-1543352634-78b04a5c5bd7?auto=format&fit=crop&w=800&q=80" alt="Fish and Steak dish" style="width:100%; max-width:700px; border-radius:10px; margin-top:20px;" />
   </section>
 
   <!-- Menu -->
   <section id="menu" style="display:none;">
     <h2>Menu</h2>
-    <p class="long-text">Explore our carefully crafted menu featuring authentic African dishes and beloved Canadian favorites, all made from fresh ingredients to satisfy every palate.</p>
+    <p class="long-text" style="margin-bottom:30px;">
+      Our menu is a vibrant fusion of traditional African delicacies and beloved Canadian classics. Each dish is carefully prepared with fresh ingredients and authentic spices to bring you an unforgettable dining experience. Whether you crave hearty soups, flavorful grilled meats, or comforting comfort foods, there’s something here for everyone.
+    </p>
     <div class="menu-grid" id="menu-section"></div>
     <h2 style="margin-top:40px;">Drinks</h2>
     <div class="menu-grid" id="drink-section"></div>
@@ -274,35 +279,34 @@
   <!-- Contact Us -->
   <section id="contact" style="display:none;">
     <h2>Contact Us</h2>
-    <p>If you have any questions, feedback, or would like to place an order, please reach out to us using the form below or via our contact details.</p>
-    <form id="contact-form" style="max-width: 600px; margin-bottom: 20px;">
-      <label for="name">Name:</label><br />
-      <input type="text" id="name" name="name" required style="width:100%; padding:8px; margin-bottom:10px;" /><br />
-      <label for="email">Email:</label><br />
-      <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin-bottom:10px;" /><br />
-      <label for="message">Message:</label><br />
-      <textarea id="message" name="message" rows="4" required style="width:100%; padding:8px; margin-bottom:10px;"></textarea><br />
-      <button type="submit" style="background:#d35400; color:#fff; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">Send</button>
-    </form>
+    <p>If you have questions, comments, or want to make a reservation, please get in touch with us. We would love to hear from you!</p>
     <p>Email: <a href="mailto:samsonrepas@hotmail.com">samsonrepas@hotmail.com</a></p>
     <p>Phone: <a href="tel:18008000000">1-800-800-0000</a></p>
     <p>Address: 142 Rue Saint-Redempteur, Gatineau, QC J8X 2R7</p>
+
+    <h3>Send Us a Message</h3>
+    <form id="contact-form" style="max-width: 500px;">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" required style="width:100%; padding:8px; margin-bottom:10px;" />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin-bottom:10px;" />
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message" required style="width:100%; padding:8px; margin-bottom:10px;" rows="5"></textarea>
+      <button type="submit" style="background:#d35400; color:white; padding:10px 15px; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">Send</button>
+    </form>
+
+    <h3>Our Location</h3>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.655011690016!2d-75.733329384444!3d45.482820979100875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce061c9b7a8a17%3A0x2c72c12b949e0f59!2s142%20Rue%20Saint-Redempteur%2C%20Gatineau%2C%20QC%20J8X%202R7!5e0!3m2!1sen!2sca!4v1688681704131!5m2!1sen!2sca"
-      width="100%"
-      height="300"
-      style="border:0; border-radius: 10px;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.987987329883!2d-75.70426078444465!3d45.49359617910227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce04c7579c3c9d%3A0xb44c8f94c71084a1!2s142%20Rue%20Saint-Redempteur%2C%20Gatineau%2C%20QC%20J8X%202R7!5e0!3m2!1sen!2sca!4v1688789930032!5m2!1sen!2sca"
+      width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
   <!-- Terms & Policies -->
   <section id="policies" style="display:none;">
     <h2>Terms & Policies</h2>
     <p class="long-text">
-      Welcome to SamSonRepas Inc. By accessing or using our services, you agree to comply with and be bound by the following terms and policies. These terms govern your use of our website, ordering services, and any transactions you make. Please read them carefully.
+      Welcome to SamSonRepas. By accessing or using our services, you agree to comply with and be bound by the following terms and policies. These terms govern your use of our website, ordering services, and any transactions you make. Please read them carefully.
 
       <br /><br />
       <strong>Ordering & Payment:</strong> All orders are subject to availability. Prices are subject to change without prior notice. Payment must be completed at the time of order. We accept various payment methods including credit cards and cash on delivery where applicable.
@@ -323,7 +327,7 @@
       <strong>Changes to Terms:</strong> We reserve the right to update these terms at any time. Continued use of our services signifies acceptance of any changes.
 
       <br /><br />
-      Thank you for choosing SamSonRepas Inc. We look forward to serving you delicious meals that bring the best of African and Canadian cuisine to your table.
+      Thank you for choosing SamSonRepas. We look forward to serving you delicious meals that bring the best of African and Canadian cuisine to your table.
     </p>
   </section>
 
@@ -343,118 +347,112 @@
       { name: "Fufu with Light Soup", price: 17.00, img: "https://images.unsplash.com/photo-1612911986315-bd511bb4f1c4?auto=format&fit=crop&w=600&q=80" },
       { name: "Pounded Yam and Bitterleaf Soup", price: 18.00, img: "https://images.unsplash.com/photo-1608136547357-b0f979c7f342?auto=format&fit=crop&w=600&q=80" },
       { name: "Canadian Poutine", price: 12.00, img: "https://images.unsplash.com/photo-1551628150-94bd9c8b94f4?auto=format&fit=crop&w=600&q=80" },
-      { name: "Maple-Glazed Salmon", price: 20.00, img: "https://images.unsplash.com/photo-1543352634-78b04a5c5bd7?auto=format&fit=crop&w=600&q=80" }
+      { name: "Maple-Glazed Salmon", price: 20.00, img: "https://images.unsplash.com/photo-1543352634-78b04a5c5bd7?auto=format&fit=crop&w=600&q=80" },
+      { name: "Jerk Chicken", price: 18.50, img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" }
     ];
 
     const drinks = [
-      { name: "Fanta", price: 2.50, img: "https://images.unsplash.com/photo-1588854337236-f82ab8f894d9?auto=format&fit=crop&w=600&q=80" },
-      { name: "Coca-Cola", price: 2.50, img: "https://images.unsplash.com/photo-1617814071590-d3a20cc0ed3f?auto=format&fit=crop&w=600&q=80" },
-      { name: "Ginger Ale", price: 2.50, img: "https://images.unsplash.com/photo-1602751581742-c442bdc4d8e8?auto=format&fit=crop&w=600&q=80" },
-      { name: "Sprite", price: 2.50, img: "https://images.unsplash.com/photo-1576650242704-cf7e5057e3b9?auto=format&fit=crop&w=600&q=80" },
-      { name: "Water", price: 1.50, img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" },
-      { name: "Orange Juice", price: 3.00, img: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=80" },
-      { name: "Apple Juice", price: 3.00, img: "https://images.unsplash.com/photo-1590080877777-2197b13b870e?auto=format&fit=crop&w=600&q=80" },
-      { name: "Iced Tea", price: 2.75, img: "https://images.unsplash.com/photo-1562440499-ec8d3a597d8a?auto=format&fit=crop&w=600&q=80" },
-      { name: "Coffee", price: 2.75, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" },
-      { name: "Beer", price: 4.00, img: "https://images.unsplash.com/photo-1547045662-c4fdd1e70c16?auto=format&fit=crop&w=600&q=80" }
+      { name: "Coca-Cola", price: 2.50, img: "https://cdn-icons-png.flaticon.com/512/569/569639.png" },
+      { name: "Fanta", price: 2.50, img: "https://cdn-icons-png.flaticon.com/512/2306/2306124.png" },
+      { name: "Ginger Ale", price: 2.75, img: "https://cdn-icons-png.flaticon.com/512/1389/1389935.png" },
+      { name: "Sprite", price: 2.50, img: "https://cdn-icons-png.flaticon.com/512/569/569622.png" },
+      { name: "Bottled Water", price: 1.50, img: "https://cdn-icons-png.flaticon.com/512/2921/2921821.png" },
+      { name: "Pepsi", price: 2.50, img: "https://cdn-icons-png.flaticon.com/512/725/725282.png" },
+      { name: "Tonic Water", price: 2.75, img: "https://cdn-icons-png.flaticon.com/512/3557/3557269.png" },
+      { name: "Iced Tea", price: 2.75, img: "https://cdn-icons-png.flaticon.com/512/135/135622.png" },
+      { name: "Lemonade", price: 2.50, img: "https://cdn-icons-png.flaticon.com/512/616/616408.png" },
+      { name: "Orange Juice", price: 3.00, img: "https://cdn-icons-png.flaticon.com/512/616/616408.png" }
     ];
 
-    const cart = [];
+    const cartItems = [];
+
+    function showPage(pageId) {
+      const pages = ["home", "about", "menu", "contact", "policies"];
+      pages.forEach(id => {
+        document.getElementById(id).style.display = id === pageId ? "block" : "none";
+      });
+    }
 
     function renderMenu() {
-      const menuSection = document.getElementById('menu-section');
-      menuSection.innerHTML = '';
-      menuItems.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.className = 'menu-item';
+      const menuSection = document.getElementById("menu-section");
+      const drinkSection = document.getElementById("drink-section");
+      menuSection.innerHTML = "";
+      drinkSection.innerHTML = "";
+
+      menuItems.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "menu-item";
         div.innerHTML = `
           <img src="${item.img}" alt="${item.name}" />
           <div class="menu-content">
             <h4>${item.name}</h4>
             <span>$${item.price.toFixed(2)}</span>
             <div class="quantity-selector">
-              <input type="number" min="1" value="1" id="qty-food-${index}" />
+              <input type="number" min="1" max="20" value="1" id="qty-${item.name.replace(/\s+/g, '')}" />
             </div>
-            <button class="add-to-cart-btn" onclick="addToCart(${index}, 'food')">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
           </div>
         `;
         menuSection.appendChild(div);
       });
-    }
 
-    function renderDrinks() {
-      const drinkSection = document.getElementById('drink-section');
-      drinkSection.innerHTML = '';
-      drinks.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.className = 'menu-item';
+      drinks.forEach(drink => {
+        const div = document.createElement("div");
+        div.className = "menu-item";
         div.innerHTML = `
-          <img src="${item.img}" alt="${item.name}" />
+          <img src="${drink.img}" alt="${drink.name}" />
           <div class="menu-content">
-            <h4>${item.name}</h4>
-            <span>$${item.price.toFixed(2)}</span>
+            <h4>${drink.name}</h4>
+            <span>$${drink.price.toFixed(2)}</span>
             <div class="quantity-selector">
-              <input type="number" min="1" value="1" id="qty-drink-${index}" />
+              <input type="number" min="1" max="20" value="1" id="qty-${drink.name.replace(/\s+/g, '')}" />
             </div>
-            <button class="add-to-cart-btn" onclick="addToCart(${index}, 'drink')">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('${drink.name}', ${drink.price})">Add to Cart</button>
           </div>
         `;
         drinkSection.appendChild(div);
       });
     }
 
-    function addToCart(index, type) {
-      let item;
-      if (type === 'food') {
-        item = menuItems[index];
-        var qty = parseInt(document.getElementById(`qty-food-${index}`).value) || 1;
+    function addToCart(name, price) {
+      const qtyInput = document.getElementById(`qty-${name.replace(/\s+/g, '')}`);
+      const qty = parseInt(qtyInput.value);
+      if (qty < 1) return alert("Please select at least one item.");
+
+      const existingItem = cartItems.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.qty += qty;
       } else {
-        item = drinks[index];
-        var qty = parseInt(document.getElementById(`qty-drink-${index}`).value) || 1;
-      }
-      const cartItemIndex = cart.findIndex(ci => ci.name === item.name);
-      if (cartItemIndex > -1) {
-        cart[cartItemIndex].quantity += qty;
-      } else {
-        cart.push({ name: item.name, price: item.price, quantity: qty });
+        cartItems.push({ name, price, qty });
       }
       updateCart();
-      alert(`${qty} x ${item.name} added to cart.`);
     }
 
     function updateCart() {
-      const cartItems = document.getElementById('cart-items');
-      const cartTotal = document.getElementById('cart-total');
-      cartItems.innerHTML = '';
+      const cartItemsUl = document.getElementById("cart-items");
+      cartItemsUl.innerHTML = "";
       let total = 0;
-      cart.forEach(item => {
-        total += item.price * item.quantity;
-        const li = document.createElement('li');
-        li.textContent = `${item.quantity} x ${item.name} - $${(item.price * item.quantity).toFixed(2)}`;
-        cartItems.appendChild(li);
+      cartItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} x${item.qty} - $${(item.price * item.qty).toFixed(2)}`;
+        cartItemsUl.appendChild(li);
+        total += item.price * item.qty;
       });
-      cartTotal.textContent = total.toFixed(2);
+      document.getElementById("cart-total").textContent = total.toFixed(2);
     }
 
-    // Navigation page show/hide logic
-    function showPage(pageId) {
-      const pages = ['home', 'about', 'menu', 'contact', 'policies'];
-      pages.forEach(p => {
-        document.getElementById(p).style.display = p === pageId ? 'block' : 'none';
-      });
-    }
-
-    // Contact form submit handling
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
       e.preventDefault();
-      alert(`Thank you, ${this.name.value}! Your message has been sent.`);
+      alert("Thank you for contacting us! We will get back to you soon.");
       this.reset();
     });
 
     // Initialize
+    showPage("home");
     renderMenu();
-    renderDrinks();
-    showPage('home');
   </script>
+  <footer>
+    &copy; 2025 SamSonRepas. All rights reserved.
+  </footer>
 </body>
 </html>
