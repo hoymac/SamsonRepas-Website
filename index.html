@@ -7,36 +7,64 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: #fdfdfd;
+      scroll-behavior: smooth;
     }
     header {
       background: #d35400;
       color: white;
       padding: 20px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
     nav {
       background: #f39c12;
-      padding: 10px;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
     }
     nav a {
-      margin: 0 15px;
       color: white;
       text-decoration: none;
       font-weight: bold;
+      margin: 0 15px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #d35400;
     }
     section {
-      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 15px;
     }
-    h2 {
+    h1, h2 {
       color: #d35400;
+      margin-bottom: 20px;
     }
+    /* Home Section */
+    #home p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    /* About Us */
+    #about p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-bottom: 10px;
+    }
+    /* Menu Grid */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
       gap: 20px;
     }
     .menu-item {
@@ -45,6 +73,9 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .menu-item img {
       width: 100%;
@@ -53,6 +84,10 @@
     }
     .menu-content {
       padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .menu-content h4 {
       margin: 0 0 10px;
@@ -60,53 +95,104 @@
     .menu-content span {
       color: #d35400;
       font-weight: bold;
+      font-size: 1.1em;
     }
     .quantity-selector {
       margin-top: 10px;
+    }
+    .quantity-selector label {
+      font-weight: bold;
     }
     .quantity-selector input {
       width: 50px;
       padding: 5px;
       font-size: 16px;
+      margin-left: 8px;
     }
     .add-to-cart-btn {
-      margin-top: 10px;
+      margin-top: 12px;
       padding: 8px 12px;
       background-color: #d35400;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
     }
+    .add-to-cart-btn:hover {
+      background-color: #a84300;
+    }
+    /* Reviews */
+    #reviews-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .review {
+      margin-bottom: 25px;
+      border-left: 4px solid #d35400;
+      padding-left: 12px;
+      background: #fff8f1;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .review strong {
+      font-size: 1.1em;
+      color: #d35400;
+    }
+    .review p {
+      margin: 8px 0 0;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    /* Contact */
+    #contact p {
+      font-size: 1.1em;
+      margin: 8px 0;
+    }
+    #map {
+      margin-top: 15px;
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    }
+    /* Cart */
     .cart {
       position: fixed;
       top: 20px;
       right: 20px;
       background: white;
       border: 1px solid #ddd;
-      padding: 10px;
+      padding: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       z-index: 1000;
-      max-width: 300px;
+      max-width: 320px;
+      max-height: 400px;
+      overflow-y: auto;
+      border-radius: 10px;
     }
     .cart h3 {
       margin-top: 0;
+      color: #d35400;
     }
     .cart ul {
       list-style: none;
       padding: 0;
-      max-height: 300px;
+      max-height: 200px;
       overflow-y: auto;
+      margin-bottom: 12px;
     }
     .cart ul li {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
     .cart-total {
       font-weight: bold;
-      margin-top: 10px;
+      margin-bottom: 12px;
+      font-size: 1.1em;
     }
     .cart-buttons {
-      margin-top: 10px;
       display: flex;
       justify-content: space-between;
     }
@@ -114,40 +200,87 @@
       background-color: #d35400;
       color: white;
       border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: 8px 15px;
+      border-radius: 6px;
       cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .cart-buttons button:hover {
+      background-color: #a84300;
     }
     .confirmation {
       background-color: #dff0d8;
       color: #3c763d;
       padding: 8px;
       margin-top: 10px;
-      border-radius: 4px;
+      border-radius: 6px;
       display: none;
+      text-align: center;
+      font-weight: bold;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin: 8px;
+      }
+      .cart {
+        max-width: 95%;
+        right: 5px;
+        left: 5px;
+        top: auto;
+        bottom: 20px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>SamSonRepas Inc.</h1>
     <p>Authentic African & Canadian Cuisine</p>
   </header>
 
   <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
     <a href="#menu">Menu</a>
-    <a href="#drinks">Drinks</a>
     <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="menu">
-    <h2>Menu</h2>
-    <div class="menu-grid" id="menu-section"></div>
+  <section id="home">
+    <h2>Welcome to SamSonRepas Inc.</h2>
+    <p>
+      Experience the rich flavors of authentic African cuisine blended with the finest Canadian dishes.  
+      Founded by Christopher Samson, who brings years of culinary experience from working at Burger King and traveling across Africa,  
+      SamSonRepas offers a unique fusion that delights every palate.  
+      Christopher’s wife is of African descent, which adds deep cultural authenticity to every dish served.
+    </p>
   </section>
 
-  <section id="drinks">
-    <h2>Drinks</h2>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Christopher Samson started his culinary journey working at Burger King, gaining valuable skills in fast-paced kitchen environments.  
+      His passion for food led him to travel extensively across Africa, learning traditional recipes and cooking techniques firsthand.  
+      With a vision to bring authentic African dishes to Canada, he founded SamSonRepas Inc., a restaurant that proudly serves both African and Canadian favorites like steak.  
+    </p>
+    <p>
+      The influence of his African-descended wife inspires the menu’s authenticity and warmth, ensuring every plate tells a story.  
+      Our mission is to share culture through cuisine and provide an unforgettable dining experience that celebrates diversity.
+    </p>
+  </section>
+
+  <section id="menu">
+    <h2>Menu</h2>
+    <h3>Food</h3>
+    <div class="menu-grid" id="menu-section"></div>
+
+    <h3 style="margin-top:40px;">Drinks</h3>
     <div class="menu-grid" id="drink-section"></div>
   </section>
 
@@ -161,6 +294,11 @@
     <p>Email: samsonrepas@hotmail.com</p>
     <p>Phone: 1-800-800-0000</p>
     <p>Address: 142 Rue Saint-Redempteur, Gatineau, QC J8X 2R7</p>
+    <div id="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.9503474967186!2d-75.69651878444344!3d45.46674727910177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce04360ccf1a8f%3A0x9220bc6b41d7ca04!2s142%20Rue%20Saint-Redempteur%2C%20Gatineau%2C%20QC%20J8X%202R7%2C%20Canada!5e0!3m2!1sen!2sus!4v1688736069421!5m2!1sen!2sus"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
   </section>
 
   <div class="cart" id="cart">
@@ -240,7 +378,7 @@
       container.innerHTML = "";
       reviews.forEach(r => {
         const div = document.createElement("div");
-        div.style.marginBottom = "20px";
+        div.className = "review";
         div.innerHTML = `
           <strong>${r.name}</strong><br/>
           <p>${r.text}</p>
@@ -261,46 +399,3 @@
       showConfirmation();
     }
 
-    function updateCart() {
-      const cartList = document.getElementById("cart-items");
-      const cartTotal = document.getElementById("cart-total");
-      cartList.innerHTML = "";
-      let total = 0;
-      cart.forEach(item => {
-        total += item.price * item.qty;
-        const li = document.createElement("li");
-        li.textContent = `${item.qty} x ${item.name} - $${(item.price * item.qty).toFixed(2)}`;
-        cartList.appendChild(li);
-      });
-      cartTotal.textContent = total.toFixed(2);
-    }
-
-    function clearCart() {
-      cart.length = 0;
-      updateCart();
-    }
-
-    function checkoutCart() {
-      if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-      }
-      alert("Thank you for your order! We will contact you shortly.");
-      clearCart();
-    }
-
-    function showConfirmation() {
-      const conf = document.getElementById("confirmation");
-      conf.style.display = "block";
-      setTimeout(() => {
-        conf.style.display = "none";
-      }, 2000);
-    }
-
-    // Initialize
-    renderItems(menuItems, "menu-section");
-    renderItems(drinks, "drink-section");
-    renderReviews();
-  </script>
-</body>
-</html>
