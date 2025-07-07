@@ -5,101 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SamSonRepas Inc.</title>
   <style>
-    body, html {
-      margin: 0; padding: 0; font-family: Arial, sans-serif; background: #fff; color: #333;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #fdfdfd;
     }
     header {
-      background: #d35400; 
-      color: white; 
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    header img {
-      height: 40px;
+      background: #d35400;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
     header h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 2.5rem;
       font-weight: bold;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    header img.logo {
+      height: 50px;
+      vertical-align: middle;
+      margin-left: 15px;
     }
     nav {
       background: #f39c12;
-      padding: 10px 0;
+      padding: 10px;
       text-align: center;
     }
     nav a {
+      margin: 0 15px;
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 1.1rem;
     }
     nav a:hover {
       text-decoration: underline;
     }
     section {
       padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      max-width: 1100px;
+      margin: auto;
     }
     h2 {
       color: #d35400;
       margin-bottom: 20px;
+      border-bottom: 2px solid #d35400;
+      padding-bottom: 5px;
     }
-    /* Home page styles */
-    #home-intro {
-      font-size: 18px;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-    /* Reviews section inside Home */
-    #reviews {
-      background: #fff8f0;
-      padding: 30px 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(211, 84, 0, 0.3);
-      margin-bottom: 40px;
-    }
-    .review-item {
-      margin-bottom: 20px;
-      border-bottom: 1px solid #f0c29f;
-      padding-bottom: 15px;
-    }
-    .review-item:last-child {
-      border: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    .review-name {
-      font-weight: bold;
-      color: #d35400;
-      margin-bottom: 8px;
-    }
-    .review-text {
-      font-style: italic;
-      line-height: 1.5;
-    }
-    /* About Us page styles */
-    #about-content {
-      font-size: 18px;
-      line-height: 1.7;
-    }
-    /* Menu styles */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
       gap: 20px;
     }
     .menu-item {
+      background: #fff;
       border: 1px solid #ddd;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      background: white;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
     .menu-item img {
       width: 100%;
@@ -108,165 +79,239 @@
     }
     .menu-content {
       padding: 15px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
     .menu-content h4 {
-      margin: 0 0 10px 0;
-      color: #d35400;
+      margin: 0 0 10px;
+      font-size: 1.2rem;
     }
     .menu-content span {
+      color: #d35400;
       font-weight: bold;
-      color: #e67e22;
-      font-size: 18px;
+      font-size: 1.1rem;
     }
-    /* Contact page styles */
-    #contact p {
-      font-size: 18px;
-      margin: 8px 0;
+    .quantity-selector {
+      margin-top: 10px;
     }
-    /* Terms & Policies page styles */
-    #policies-content {
-      font-size: 17px;
-      line-height: 1.7;
-      white-space: pre-wrap;
+    .quantity-selector input {
+      width: 50px;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .add-to-cart-btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #d35400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #b03e00;
+    }
+    /* Cart */
+    #cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      padding: 15px;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 320px;
+      max-height: 350px;
+      overflow-y: auto;
+      z-index: 1000;
+      border-radius: 10px;
+    }
+    #cart h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #d35400;
+    }
+    #cart ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    #cart ul li {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    #cart-total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #d35400;
+    }
+    /* Reviews */
+    .review {
+      background: #fff7ed;
+      border: 1px solid #f0c27b;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 5px rgba(211, 84, 0, 0.2);
+    }
+    .review strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #b03e00;
+      font-size: 1.1rem;
+    }
+    /* About us & Policies text */
+    .long-text {
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #333;
     }
     /* Footer */
     footer {
-      text-align: center;
-      padding: 20px 10px;
-      background: #f39c12;
+      background: #d35400;
       color: white;
-      font-weight: bold;
+      text-align: center;
+      padding: 15px 10px;
       margin-top: 40px;
+      font-weight: bold;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      #cart {
+        width: 90%;
+        right: 5%;
+        left: 5%;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921820.png" alt="SamSonRepas Logo" />
     <h1>SamSonRepas Inc.</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="logo" />
   </header>
 
   <nav>
-    <a href="#home" onclick="showPage('home')">Home</a>
-    <a href="#about" onclick="showPage('about')">About Us</a>
-    <a href="#menu" onclick="showPage('menu')">Menu</a>
-    <a href="#contact" onclick="showPage('contact')">Contact Us</a>
-    <a href="#policies" onclick="showPage('policies')">Terms & Policies</a>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('about')">About Us</a>
+    <a href="#" onclick="showPage('menu')">Menu</a>
+    <a href="#" onclick="showPage('contact')">Contact Us</a>
+    <a href="#" onclick="showPage('policies')">Terms & Policies</a>
   </nav>
 
-  <main>
-    <!-- Home page -->
-    <section id="home" style="display:block;">
-      <div id="home-intro">
-        <h2>Welcome to SamSonRepas Inc.</h2>
-        <p>Discover authentic African and Canadian cuisine crafted with passion by Christopher Samson, whose culinary journey includes experience at Burger King and unforgettable travels across Africa, bringing unique flavors and traditions to Gatineau, QC.</p>
+  <!-- Home Page -->
+  <section id="home">
+    <h2>Welcome to SamSonRepas Inc.</h2>
+    <p class="long-text">
+      Experience the authentic taste of African cuisine blended with Canadian favorites in the heart of Gatineau, QC. Our founder Christopher Samson brings years of experience from working at Burger King and has traveled extensively across Africa to master traditional dishes. With a wife of African descent inspiring our flavors, we proudly serve a menu that celebrates rich heritage and fresh local ingredients.
+    </p>
+    <video controls width="100%" style="max-width:700px; border-radius:10px; margin-top:20px;">
+      <source src="https://cdn.videvo.net/videvo_files/video/free/2017-06/small_watermarked/170530_01_Food_02_preview.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+
+    <h2 style="margin-top:40px;">What Our Customers Say</h2>
+    <div>
+      <div class="review">
+        <strong>Sarah M.</strong>
+        <p>I have been a loyal customer for years. The Jollof Rice is outstanding, and the hospitality at SamSonRepas is unmatched. Truly feels like home away from home.</p>
       </div>
-
-      <div id="reviews">
-        <h2>Customer Reviews</h2>
-        <div class="review-item">
-          <div class="review-name">Jessica T.</div>
-          <div class="review-text">“SamSonRepas offers the best Jollof rice I've ever tasted. The spices are perfectly balanced and the atmosphere feels like home.”</div>
-        </div>
-        <div class="review-item">
-          <div class="review-name">Marcus L.</div>
-          <div class="review-text">“I love the mix of Canadian and African dishes here. The steak is juicy and the Egusi soup reminds me of my travels to Nigeria.”</div>
-        </div>
-        <div class="review-item">
-          <div class="review-name">Olivia K.</div>
-          <div class="review-text">“Friendly staff, delicious food, and great prices. The Plantain Fritters are a must-try!”</div>
-        </div>
-        <div class="review-item">
-          <div class="review-name">Daniel S.</div>
-          <div class="review-text">“An amazing fusion of cultures on a plate. The Suya skewers have a wonderful kick of spice.”</div>
-        </div>
-        <div class="review-item">
-          <div class="review-name">Amina H.</div>
-          <div class="review-text">“I brought my family here for a special occasion. Everyone enjoyed the food and the warm atmosphere.”</div>
-        </div>
-        <div class="review-item">
-          <div class="review-name">Carlos M.</div>
-          <div class="review-text">“Great drinks and the perfect portion sizes. The customer service was outstanding.”</div>
-        </div>
-        <div class="review-item">
-          <div class="review-name">Stephanie R.</div>
-          <div class="review-text">“This place is a gem! The Jollof rice paired with a cold Fanta is my favorite combo.”</div>
-        </div>
-        <div class="review-item">
-          <div class="review-name">Ethan J.</div>
-          <div class="review-text">“Authentic flavors, great prices, and a friendly vibe. I'll be back soon!”</div>
-        </div>
+      <div class="review">
+        <strong>David T.</strong>
+        <p>The mix of African and Canadian dishes is perfectly balanced. The Maple-Glazed Salmon is a must-try! Highly recommend to anyone visiting Gatineau.</p>
       </div>
-    </section>
-
-    <!-- About Us page -->
-    <section id="about" style="display:none;">
-      <h2>About Us</h2>
-      <div id="about-content">
-        <p>Christopher Samson, founder of SamSonRepas Inc., has a deep passion for food that started with his early culinary experience working at Burger King. His journey expanded when he traveled extensively across Africa, learning traditional recipes and cooking techniques from various regions. His wife, of African descent, has also inspired many of the dishes you find on our menu today.</p>
-        <p>At SamSonRepas, we blend authentic African flavors with classic Canadian favorites to create a unique dining experience here in Gatineau, QC. Whether you're craving the spicy and vibrant tastes of Suya and Jollof Rice or the comforting familiarity of a well-cooked steak, our menu has something for everyone.</p>
-        <p>We pride ourselves on quality ingredients, warm service, and sharing our culinary heritage with the community.</p>
+      <div class="review">
+        <strong>Linda K.</strong>
+        <p>Fantastic food and great service. The Suya spices are authentic and the portions generous. Will definitely come back soon.</p>
       </div>
-    </section>
-
-    <!-- Menu page -->
-    <section id="menu" style="display:none;">
-      <h2>Menu</h2>
-      <div class="menu-grid" id="menu-section"></div>
-      <h2>Drinks</h2>
-      <div class="menu-grid" id="drink-section"></div>
-    </section>
-
-    <!-- Contact page -->
-    <section id="contact" style="display:none;">
-      <h2>Contact Us</h2>
-      <p>Email: samsonrepas@hotmail.com</p>
-      <p>Phone: 1-800-800-0000</p>
-      <p>Address: 142 Rue Saint-Redempteur, Gatineau, QC J8X 2R7</p>
-    </section>
-
-    <!-- Terms & Policies page -->
-    <section id="policies" style="display:none;">
-      <h2>Terms & Policies</h2>
-      <div id="policies-content">
-        <p>
-        Welcome to SamSonRepas Inc. We are committed to providing a safe, enjoyable, and respectful dining experience for all our guests. To help ensure this, we have outlined our terms and policies below. By dining with us or using our services, you agree to comply with these policies.
-
-        <br><br>
-        <strong>Reservations and Cancellations:</strong> We accept reservations to ensure timely seating and a smooth dining experience. If you need to cancel or modify your reservation, please notify us at least 24 hours in advance. No-shows or late cancellations may be subject to a fee.
-
-        <br><br>
-        <strong>Payment:</strong> We accept major credit cards, debit cards, and cash payments. Payment is expected at the time of service. Gratuities are appreciated but not included unless specified. Any disputes regarding billing should be addressed promptly with our management.
-
-        <br><br>
-        <strong>Refunds and Returns:</strong> We strive to serve only the highest quality dishes. If you are unsatisfied with your meal due to a preparation error or quality issue, please notify your server immediately. We reserve the right to evaluate each case and offer a suitable resolution, which may include a replacement or refund.
-
-        <br><br>
-        <strong>Allergy and Dietary Information:</strong> Please inform our staff of any allergies or dietary restrictions prior to ordering. While we take care to prevent cross-contamination, we cannot guarantee that any dish is completely free of allergens.
-
-        <br><br>
-        <strong>Health and Safety:</strong> Our kitchen and dining areas meet or exceed local health regulations. We maintain strict hygiene and food safety standards to protect our guests.
-
-        <br><br>
-        <strong>Customer Conduct:</strong> We expect all guests to treat staff and fellow diners with respect and courtesy. Disruptive behavior, harassment, or discrimination will not be tolerated and may result in removal from the premises.
-
-        <br><br>
-        <strong>Privacy:</strong> Any personal information collected during reservation or ordering will be handled in accordance with applicable privacy laws and used solely to provide services.
-
-        <br><br>
-        <strong>Changes to Policies:</strong> SamSonRepas Inc. reserves the right to modify these policies at any time. Any changes will be posted on our website and communicated as necessary.
-
-        <br><br>
-        Thank you for choosing SamSonRepas Inc. We look forward to serving you and providing a memorable dining experience.
-        </p>
+      <div class="review">
+        <strong>Michael B.</strong>
+        <p>From the Plantain Fritters to the Poutine, everything tastes fresh and well prepared. A great place to enjoy diverse flavors.</p>
       </div>
-    </section>
-  </main>
+      <div class="review">
+        <strong>Amina O.</strong>
+        <p>I love the Egusi Soup and the warm atmosphere. This place brings a wonderful piece of African culture to Canada.</p>
+      </div>
+      <div class="review">
+        <strong>Emma W.</strong>
+        <p>The Fufu with Light Soup was delicious and authentic. The staff was friendly and the restaurant clean and inviting.</p>
+      </div>
+      <div class="review">
+        <strong>John D.</strong>
+        <p>Great spot for trying something new! The Canadian Poutine here is also top-notch and the prices are reasonable.</p>
+      </div>
+      <div class="review">
+        <strong>Grace L.</strong>
+        <p>Excellent service and a beautiful blend of African and Canadian cuisine. The menu has something for everyone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about" style="display:none;">
+    <h2>About Us</h2>
+    <p class="long-text">
+      Christopher Samson, our founder, brings over a decade of food service experience, having worked at Burger King in Canada. His passion for food led him to travel extensively across Africa, immersing himself in the culinary traditions and mastering authentic recipes. Inspired by his African-descended wife, SamSonRepas Inc. was born to celebrate the rich flavors and culture of Africa while embracing Canadian favorites. Our mission is to provide a welcoming space where diverse communities can come together and enjoy exceptional meals crafted with love and care.
+    </p>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" style="display:none;">
+    <h2>Menu</h2>
+    <div class="menu-grid" id="menu-section"></div>
+    <h2 style="margin-top:40px;">Drinks</h2>
+    <div class="menu-grid" id="drink-section"></div>
+  </section>
+
+  <!-- Contact Us -->
+  <section id="contact" style="display:none;">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:samsonrepas@hotmail.com">samsonrepas@hotmail.com</a></p>
+    <p>Phone: <a href="tel:18008000000">1-800-800-0000</a></p>
+    <p>Address: 142 Rue Saint-Redempteur, Gatineau, QC J8X 2R7</p>
+  </section>
+
+  <!-- Terms & Policies -->
+  <section id="policies" style="display:none;">
+    <h2>Terms & Policies</h2>
+    <p class="long-text">
+      Welcome to SamSonRepas Inc. By accessing or using our services, you agree to comply with and be bound by the following terms and policies. These terms govern your use of our website, ordering services, and any transactions you make. Please read them carefully.
+
+      <br /><br />
+      <strong>Ordering & Payment:</strong> All orders are subject to availability. Prices are subject to change without prior notice. Payment must be completed at the time of order. We accept various payment methods including credit cards and cash on delivery where applicable.
+
+      <br /><br />
+      <strong>Delivery & Pickup:</strong> We strive to deliver all orders promptly. Delivery times may vary based on location and demand. Customers are responsible for providing accurate delivery details. For pickup, please arrive within your scheduled window.
+
+      <br /><br />
+      <strong>Refunds & Cancellations:</strong> Refund requests will be evaluated on a case-by-case basis. Please contact us promptly if you experience any issues with your order. Cancellation of orders may be possible before preparation begins.
+
+      <br /><br />
+      <strong>Privacy:</strong> We respect your privacy and will not share your personal information with third parties without your consent, except as required by law. Please review our privacy practices for details.
+
+      <br /><br />
+      <strong>Food Allergies & Safety:</strong> We take food safety seriously. However, we cannot guarantee the absence of allergens due to shared kitchen environments. Customers with allergies should inform us before ordering.
+
+      <br /><br />
+      <strong>Changes to Terms:</strong> We reserve the right to update these terms at any time. Continued use of our services signifies acceptance of any changes.
+
+      <br /><br />
+      Thank you for choosing SamSonRepas Inc. We look forward to serving you delicious meals that bring the best of African and Canadian cuisine to your table.
+    </p>
+  </section>
+
+  <!-- Shopping Cart -->
+  <div id="cart">
+    <h3>Shopping Cart</h3>
+    <ul id="cart-items"></ul>
+    <div>Total: $<span id="cart-total">0.00</span></div>
+  </div>
 
   <script>
     const menuItems = [
@@ -274,8 +319,10 @@
       { name: "Jollof Rice with Chicken", price: 16.50, img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" },
       { name: "Egusi Soup with Pounded Yam", price: 19.00, img: "https://images.unsplash.com/photo-1576871337632-4ec1ec7c1874?auto=format&fit=crop&w=600&q=80" },
       { name: "Suya (Spicy Grilled Beef Skewers)", price: 15.50, img: "https://images.unsplash.com/photo-1543352634-40d760e7f76a?auto=format&fit=crop&w=600&q=80" },
-      { name: "Canadian Steak with Herb Butter", price: 22.00, img: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" },
-      { name: "Poutine", price: 12.00, img: "https://images.unsplash.com/photo-1551628150-94bd9c8b94f4?auto=format&fit=crop&w=600&q=80" }
+      { name: "Fufu with Light Soup", price: 17.00, img: "https://images.unsplash.com/photo-1612911986315-bd511bb4f1c4?auto=format&fit=crop&w=600&q=80" },
+      { name: "Pounded Yam and Bitterleaf Soup", price: 18.00, img: "https://images.unsplash.com/photo-1608136547357-b0f979c7f342?auto=format&fit=crop&w=600&q=80" },
+      { name: "Canadian Poutine", price: 12.00, img: "https://images.unsplash.com/photo-1551628150-94bd9c8b94f4?auto=format&fit=crop&w=600&q=80" },
+      { name: "Maple-Glazed Salmon", price: 20.00, img: "https://images.unsplash.com/photo-1543352634-78b04a5c5bd7?auto=format&fit=crop&w=600&q=80" }
     ];
 
     const drinks = [
@@ -308,22 +355,22 @@
               <label for="qty-${containerId}-${item.name}">Qty: </label>
               <input id="qty-${containerId}-${item.name}" type="number" value="1" min="1" />
             </div>
-            <button class="add-to-cart-btn" style="margin-top:10px; padding: 8px 12px; background:#d35400; color:#fff; border:none; border-radius:5px; cursor:pointer;">
-              Add to Cart
-            </button>
+            <button class="add-to-cart-btn">Add to Cart</button>
           </div>
         `;
         const btn = div.querySelector(".add-to-cart-btn");
         btn.addEventListener("click", () => {
-          const qty = parseInt(div.querySelector("input").value);
+          const qtyInput = div.querySelector("input");
+          const qty = parseInt(qtyInput.value);
           addToCart(item.name, item.price, qty);
+          qtyInput.value = 1;
         });
         container.appendChild(div);
       });
     }
 
     function addToCart(name, price, qty) {
-      const existing = cart.find(item => item.name === name);
+      const existing = cart.find(i => i.name === name);
       if (existing) {
         existing.qty += qty;
       } else {
@@ -346,25 +393,21 @@
       cartTotal.textContent = total.toFixed(2);
     }
 
-    function showPage(pageId) {
-      const pages = ['home', 'about', 'menu', 'contact', 'policies'];
-      pages.forEach(id => {
-        document.getElementById(id).style.display = (id === pageId) ? 'block' : 'none';
+    // Page navigation
+    function showPage(page) {
+      const pages = ['home','about','menu','contact','policies'];
+      pages.forEach(p => {
+        document.getElementById(p).style.display = (p === page) ? 'block' : 'none';
       });
-      window.scrollTo(0, 0);
     }
 
-    // Initial render
-    renderItems(menuItems, "menu-section");
-    renderItems(drinks, "drink-section");
+    // Initialize
+    window.onload = function() {
+      showPage('home');
+      renderItems(menuItems, "menu-section");
+      renderItems(drinks, "drink-section");
+    }
   </script>
-
-  <div id="cart" style="position:fixed; bottom:20px; right:20px; background:white; padding:15px; border:1px solid #ddd; box-shadow:0 0 10px rgba(0,0,0,0.2); width:280px; max-height:300px; overflow-y:auto;">
-    <h3>Shopping Cart</h3>
-    <ul id="cart-items" style="list-style:none; padding-left:0; margin:0;"></ul>
-    <div style="font-weight:bold; margin-top:10px;">Total: $<span id="cart-total">0.00</span></div>
-  </div>
-
   <footer>
     &copy; 2025 SamSonRepas Inc. All rights reserved.
   </footer>
