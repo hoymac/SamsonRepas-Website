@@ -5,510 +5,368 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SamSonRepas Inc.</title>
   <style>
-    /* Reset and base styles */
     body, html {
-      margin: 0; padding: 0; height: 100%;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      color: #333;
-      position: relative;
-      z-index: 0;
-      background: transparent;
+      margin: 0; padding: 0; font-family: Arial, sans-serif; background: #fff; color: #333;
     }
-
-    /* Background slideshow container */
-    #bg-slideshow {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    /* Each slideshow image */
-    #bg-slideshow img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      animation: fade 20s infinite;
-    }
-
-    #bg-slideshow img:nth-child(1) {
-      animation-delay: 0s;
-    }
-    #bg-slideshow img:nth-child(2) {
-      animation-delay: 6.6s;
-    }
-    #bg-slideshow img:nth-child(3) {
-      animation-delay: 13.2s;
-    }
-
-    /* Fade animation */
-    @keyframes fade {
-      0%   { opacity: 0; }
-      10%  { opacity: 1; }
-      30%  { opacity: 1; }
-      40%  { opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    /* Content container */
-    #content {
-      position: relative;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.9);
-      min-height: 100vh;
-      padding: 20px 20px 60px;
-      box-sizing: border-box;
-      max-width: 1000px;
-      margin: 0 auto;
-      border-radius: 10px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.2);
-    }
-
     header {
-      background: #d35400;
-      color: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-
+      background: #d35400; 
+      color: white; 
+      padding: 15px 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     }
-
-    header .logo {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
+    header img {
+      height: 40px;
     }
-
     header h1 {
       margin: 0;
-      font-size: 2.2em;
-      color: white;  /* White text */
+      font-size: 24px;
+      font-weight: bold;
     }
-
-    header p {
-      margin: 0 0 0 10px;
-      font-weight: normal;
-      color: white;
-      font-size: 1.1em;
-    }
-
     nav {
+      background: #f39c12;
+      padding: 10px 0;
       text-align: center;
-      margin-bottom: 40px;
     }
-
     nav a {
+      color: white;
+      text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
-      color: #d35400;
-      text-decoration: none;
       font-size: 18px;
-      transition: color 0.3s ease;
     }
-
     nav a:hover {
-      color: #a14000;
       text-decoration: underline;
     }
-
     section {
-      margin-bottom: 50px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-
-    h1, h2 {
+    h2 {
       color: #d35400;
+      margin-bottom: 20px;
     }
-
-    /* Menu grid */
+    /* Home page styles */
+    #home-intro {
+      font-size: 18px;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    /* Reviews section inside Home */
+    #reviews {
+      background: #fff8f0;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(211, 84, 0, 0.3);
+      margin-bottom: 40px;
+    }
+    .review-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f0c29f;
+      padding-bottom: 15px;
+    }
+    .review-item:last-child {
+      border: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .review-name {
+      font-weight: bold;
+      color: #d35400;
+      margin-bottom: 8px;
+    }
+    .review-text {
+      font-style: italic;
+      line-height: 1.5;
+    }
+    /* About Us page styles */
+    #about-content {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    /* Menu styles */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
       gap: 20px;
     }
-
     .menu-item {
-      background: #fff;
       border: 1px solid #ddd;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      background: white;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
-
     .menu-item img {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      border-bottom: 1px solid #ddd;
     }
-
     .menu-content {
       padding: 15px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
-
     .menu-content h4 {
-      margin: 0 0 10px;
+      margin: 0 0 10px 0;
       color: #d35400;
     }
-
     .menu-content span {
       font-weight: bold;
+      color: #e67e22;
       font-size: 18px;
-      margin-bottom: 10px;
     }
-
-    .quantity-selector {
-      margin-bottom: 10px;
-    }
-
-    .quantity-selector input {
-      width: 50px;
-      padding: 5px;
-      font-size: 16px;
-      text-align: center;
-    }
-
-    .add-to-cart-btn {
-      padding: 10px;
-      background-color: #d35400;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      margin-top: auto;
-    }
-
-    .add-to-cart-btn:hover {
-      background-color: #a14000;
-    }
-
-    /* Cart styles */
-    .cart {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: white;
-      border: 1px solid #ddd;
-      padding: 15px 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      width: 300px;
-      max-height: 70vh;
-      overflow-y: auto;
-      border-radius: 10px;
-      z-index: 20;
-    }
-
-    .cart h3 {
-      margin-top: 0;
-      color: #d35400;
-      text-align: center;
-    }
-
-    .cart ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-
-    .cart ul li {
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-
-    .cart-total {
-      font-weight: bold;
-      margin-top: 15px;
+    /* Contact page styles */
+    #contact p {
       font-size: 18px;
-      text-align: center;
-      color: #d35400;
+      margin: 8px 0;
     }
-
-    .cart-buttons {
-      margin-top: 15px;
-      text-align: center;
+    /* Terms & Policies page styles */
+    #policies-content {
+      font-size: 17px;
+      line-height: 1.7;
+      white-space: pre-wrap;
     }
-
-    .cart-buttons button {
-      background: #d35400;
-      border: none;
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      background: #f39c12;
       color: white;
-      padding: 8px 15px;
-      margin: 0 5px;
-      border-radius: 5px;
-      cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .cart-buttons button:hover {
-      background: #a14000;
-    }
-
-    /* Reviews */
-    .review {
-      background: #f9f9f9;
-      border-left: 4px solid #d35400;
-      margin-bottom: 15px;
-      padding: 15px 20px;
-      border-radius: 6px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .review strong {
-      display: block;
-      margin-bottom: 8px;
-      color: #d35400;
-      font-size: 16px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .cart {
-        position: static;
-        width: 100%;
-        max-height: none;
-        margin-bottom: 20px;
-      }
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
-      header p {
-        margin-left: 0;
-      }
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background slideshow -->
-  <div id="bg-slideshow">
-    <img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/food-2178782_1280.jpg" alt="Food 1" />
-    <img src="https://cdn.pixabay.com/photo/2016/11/18/17/19/food-1838996_1280.jpg" alt="Food 2" />
-    <img src="https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_1280.jpg" alt="Food 3" />
-  </div>
+  <header>
+    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921820.png" alt="SamSonRepas Logo" />
+    <h1>SamSonRepas Inc.</h1>
+  </header>
 
-  <div id="content">
+  <nav>
+    <a href="#home" onclick="showPage('home')">Home</a>
+    <a href="#about" onclick="showPage('about')">About Us</a>
+    <a href="#menu" onclick="showPage('menu')">Menu</a>
+    <a href="#contact" onclick="showPage('contact')">Contact Us</a>
+    <a href="#policies" onclick="showPage('policies')">Terms & Policies</a>
+  </nav>
 
-    <header>
-      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="SamSonRepas Logo" class="logo" />
-      <h1>SamSonRepas Inc.</h1>
-      <p>Authentic African & Canadian Cuisine</p>
-    </header>
+  <main>
+    <!-- Home page -->
+    <section id="home" style="display:block;">
+      <div id="home-intro">
+        <h2>Welcome to SamSonRepas Inc.</h2>
+        <p>Discover authentic African and Canadian cuisine crafted with passion by Christopher Samson, whose culinary journey includes experience at Burger King and unforgettable travels across Africa, bringing unique flavors and traditions to Gatineau, QC.</p>
+      </div>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="home">
-      <h2>Welcome to SamSonRepas!</h2>
-      <p>
-        Christopher Samson brings years of experience cooking authentic African dishes combined with Canadian favorites like steak and poutine.
-        After traveling to Africa and learning from local chefs — with his wife being of African descent — SamSonRepas Inc. is proud to offer a unique fusion of tastes.
-      </p>
-
-      <h3>Customer Reviews</h3>
       <div id="reviews">
-        <div class="review">
-          <strong>James R.</strong>
-          The jollof rice here is absolutely delicious! The flavors are rich and authentic, reminding me of my trip to Lagos. Highly recommend the plantain fritters too.
+        <h2>Customer Reviews</h2>
+        <div class="review-item">
+          <div class="review-name">Jessica T.</div>
+          <div class="review-text">“SamSonRepas offers the best Jollof rice I've ever tasted. The spices are perfectly balanced and the atmosphere feels like home.”</div>
         </div>
-        <div class="review">
-          <strong>Sarah L.</strong>
-          Loved the friendly service and the cozy atmosphere. The suya was perfectly spicy and the steak was cooked just right. Will definitely be coming back!
+        <div class="review-item">
+          <div class="review-name">Marcus L.</div>
+          <div class="review-text">“I love the mix of Canadian and African dishes here. The steak is juicy and the Egusi soup reminds me of my travels to Nigeria.”</div>
         </div>
-        <div class="review">
-          <strong>Mohamed A.</strong>
-          Fantastic blend of African and Canadian cuisine. The egusi soup with pounded yam brought back so many memories. The drinks selection is great too.
+        <div class="review-item">
+          <div class="review-name">Olivia K.</div>
+          <div class="review-text">“Friendly staff, delicious food, and great prices. The Plantain Fritters are a must-try!”</div>
         </div>
-        <div class="review">
-          <strong>Emily K.</strong>
-          Great spot in Gatineau! The food is fresh, portions generous, and the prices reasonable. I enjoyed the fanta and ginger ale with my meal.
+        <div class="review-item">
+          <div class="review-name">Daniel S.</div>
+          <div class="review-text">“An amazing fusion of cultures on a plate. The Suya skewers have a wonderful kick of spice.”</div>
         </div>
-        <div class="review">
-          <strong>David W.</strong>
-          Excellent quality food and fast service. The spicy grilled beef skewers are a must-try. The atmosphere is welcoming and family-friendly.
+        <div class="review-item">
+          <div class="review-name">Amina H.</div>
+          <div class="review-text">“I brought my family here for a special occasion. Everyone enjoyed the food and the warm atmosphere.”</div>
         </div>
-        <div class="review">
-          <strong>Amina S.</strong>
-          I appreciate the authentic flavors and the mix of African and Canadian dishes. The poutine was surprisingly good alongside the traditional dishes.
+        <div class="review-item">
+          <div class="review-name">Carlos M.</div>
+          <div class="review-text">“Great drinks and the perfect portion sizes. The customer service was outstanding.”</div>
         </div>
-        <div class="review">
-          <strong>Mark T.</strong>
-          A unique dining experience with fresh ingredients and attentive staff. The portion sizes are perfect, and the pricing is fair.
+        <div class="review-item">
+          <div class="review-name">Stephanie R.</div>
+          <div class="review-text">“This place is a gem! The Jollof rice paired with a cold Fanta is my favorite combo.”</div>
         </div>
-        <div class="review">
-          <strong>Linda M.</strong>
-          Wonderful ambiance and delicious food! The plantain fritters are a great starter and the drinks menu has plenty of options.
+        <div class="review-item">
+          <div class="review-name">Ethan J.</div>
+          <div class="review-text">“Authentic flavors, great prices, and a friendly vibe. I'll be back soon!”</div>
         </div>
       </div>
     </section>
 
-    <section id="menu">
+    <!-- About Us page -->
+    <section id="about" style="display:none;">
+      <h2>About Us</h2>
+      <div id="about-content">
+        <p>Christopher Samson, founder of SamSonRepas Inc., has a deep passion for food that started with his early culinary experience working at Burger King. His journey expanded when he traveled extensively across Africa, learning traditional recipes and cooking techniques from various regions. His wife, of African descent, has also inspired many of the dishes you find on our menu today.</p>
+        <p>At SamSonRepas, we blend authentic African flavors with classic Canadian favorites to create a unique dining experience here in Gatineau, QC. Whether you're craving the spicy and vibrant tastes of Suya and Jollof Rice or the comforting familiarity of a well-cooked steak, our menu has something for everyone.</p>
+        <p>We pride ourselves on quality ingredients, warm service, and sharing our culinary heritage with the community.</p>
+      </div>
+    </section>
+
+    <!-- Menu page -->
+    <section id="menu" style="display:none;">
       <h2>Menu</h2>
-
-      <h3>African & Canadian Starters</h3>
       <div class="menu-grid" id="menu-section"></div>
-
-      <h3>Drinks</h3>
+      <h2>Drinks</h2>
       <div class="menu-grid" id="drink-section"></div>
     </section>
 
-    <section id="contact">
+    <!-- Contact page -->
+    <section id="contact" style="display:none;">
       <h2>Contact Us</h2>
       <p>Email: samsonrepas@hotmail.com</p>
       <p>Phone: 1-800-800-0000</p>
       <p>Address: 142 Rue Saint-Redempteur, Gatineau, QC J8X 2R7</p>
     </section>
 
-  </div>
+    <!-- Terms & Policies page -->
+    <section id="policies" style="display:none;">
+      <h2>Terms & Policies</h2>
+      <div id="policies-content">
+        <p>
+        Welcome to SamSonRepas Inc. We are committed to providing a safe, enjoyable, and respectful dining experience for all our guests. To help ensure this, we have outlined our terms and policies below. By dining with us or using our services, you agree to comply with these policies.
 
-  <div class="cart" id="cart">
-    <h3>Shopping Cart</h3>
-    <ul id="cart-items"></ul>
-    <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
-    <div class="cart-buttons">
-      <button onclick="checkoutCart()">Checkout</button>
-      <button onclick="clearCart()">Clear Cart</button>
-    </div>
-  </div>
+        <br><br>
+        <strong>Reservations and Cancellations:</strong> We accept reservations to ensure timely seating and a smooth dining experience. If you need to cancel or modify your reservation, please notify us at least 24 hours in advance. No-shows or late cancellations may be subject to a fee.
 
-<script>
-  const menuItems = [
-    { name: "Plantain Fritters (Akara)", price: 9.50, img: "https://cdn.pixabay.com/photo/2017/03/27/14/56/food-2178782_1280.jpg" },
-    { name: "Jollof Rice with Chicken", price: 17.00, img: "https://cdn.pixabay.com/photo/2016/11/18/17/19/food-1838996_1280.jpg" },
-    { name: "Egusi Soup with Pounded Yam", price: 20.00, img: "https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_1280.jpg" },
-    { name: "Suya (Spicy Grilled Beef Skewers)", price: 16.00, img: "https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_1280.jpg" },
-    { name: "Canadian Steak", price: 22.00, img: "https://cdn.pixabay.com/photo/2017/09/02/13/31/steak-2704558_1280.jpg" },
-    { name: "Poutine", price: 12.50, img: "https://cdn.pixabay.com/photo/2014/11/30/14/11/poutine-550502_1280.jpg" }
-  ];
+        <br><br>
+        <strong>Payment:</strong> We accept major credit cards, debit cards, and cash payments. Payment is expected at the time of service. Gratuities are appreciated but not included unless specified. Any disputes regarding billing should be addressed promptly with our management.
 
-  const drinks = [
-    { name: "Fanta", price: 2.50, img: "https://cdn.pixabay.com/photo/2017/08/07/01/56/fanta-2596667_1280.jpg" },
-    { name: "Coca-Cola", price: 2.50, img: "https://cdn.pixabay.com/photo/2015/11/19/21/11/coca-cola-1053483_1280.jpg" },
-    { name: "Ginger Ale", price: 2.50, img: "https://cdn.pixabay.com/photo/2017/04/12/14/34/ginger-ale-2223386_1280.jpg" },
-    { name: "Sprite", price: 2.50, img: "https://cdn.pixabay.com/photo/2018/06/18/16/05/sprite-3488495_1280.jpg" },
-    { name: "Malta", price: 3.00, img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/malta-1238983_1280.jpg" },
-    { name: "Water", price: 1.50, img: "https://cdn.pixabay.com/photo/2016/11/18/21/15/water-1839199_1280.jpg" },
-    { name: "Apple Juice", price: 2.50, img: "https://cdn.pixabay.com/photo/2017/02/27/16/14/apple-juice-2109249_1280.jpg" },
-    { name: "Orange Juice", price: 2.50, img: "https://cdn.pixabay.com/photo/2014/12/13/00/24/orange-566296_1280.jpg" },
-    { name: "Pineapple Juice", price: 2.50, img: "https://cdn.pixabay.com/photo/2017/01/20/00/30/pineapple-1995054_1280.jpg" },
-    { name: "Iced Tea", price: 2.50, img: "https://cdn.pixabay.com/photo/2017/07/18/08/26/iced-tea-2515957_1280.jpg" }
-  ];
+        <br><br>
+        <strong>Refunds and Returns:</strong> We strive to serve only the highest quality dishes. If you are unsatisfied with your meal due to a preparation error or quality issue, please notify your server immediately. We reserve the right to evaluate each case and offer a suitable resolution, which may include a replacement or refund.
 
-  let cart = [];
+        <br><br>
+        <strong>Allergy and Dietary Information:</strong> Please inform our staff of any allergies or dietary restrictions prior to ordering. While we take care to prevent cross-contamination, we cannot guarantee that any dish is completely free of allergens.
 
-  function renderItems(items, containerId) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = "";
-    items.forEach(item => {
-      const div = document.createElement("div");
-      div.className = "menu-item";
-      div.innerHTML = `
-        <img src="${item.img}" alt="${item.name}" />
-        <div class="menu-content">
-          <h4>${item.name}</h4>
-          <span>$${item.price.toFixed(2)}</span>
-          <div class="quantity-selector">
-            <label for="qty-${item.name.replace(/\s+/g, '')}">Qty:</label>
-            <input type="number" id="qty-${item.name.replace(/\s+/g, '')}" min="1" value="1" />
+        <br><br>
+        <strong>Health and Safety:</strong> Our kitchen and dining areas meet or exceed local health regulations. We maintain strict hygiene and food safety standards to protect our guests.
+
+        <br><br>
+        <strong>Customer Conduct:</strong> We expect all guests to treat staff and fellow diners with respect and courtesy. Disruptive behavior, harassment, or discrimination will not be tolerated and may result in removal from the premises.
+
+        <br><br>
+        <strong>Privacy:</strong> Any personal information collected during reservation or ordering will be handled in accordance with applicable privacy laws and used solely to provide services.
+
+        <br><br>
+        <strong>Changes to Policies:</strong> SamSonRepas Inc. reserves the right to modify these policies at any time. Any changes will be posted on our website and communicated as necessary.
+
+        <br><br>
+        Thank you for choosing SamSonRepas Inc. We look forward to serving you and providing a memorable dining experience.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const menuItems = [
+      { name: "Plantain Fritters (Akara)", price: 9.50, img: "https://images.unsplash.com/photo-1562967916-eb82221dfb3a?auto=format&fit=crop&w=600&q=80" },
+      { name: "Jollof Rice with Chicken", price: 16.50, img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" },
+      { name: "Egusi Soup with Pounded Yam", price: 19.00, img: "https://images.unsplash.com/photo-1576871337632-4ec1ec7c1874?auto=format&fit=crop&w=600&q=80" },
+      { name: "Suya (Spicy Grilled Beef Skewers)", price: 15.50, img: "https://images.unsplash.com/photo-1543352634-40d760e7f76a?auto=format&fit=crop&w=600&q=80" },
+      { name: "Canadian Steak with Herb Butter", price: 22.00, img: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" },
+      { name: "Poutine", price: 12.00, img: "https://images.unsplash.com/photo-1551628150-94bd9c8b94f4?auto=format&fit=crop&w=600&q=80" }
+    ];
+
+    const drinks = [
+      { name: "Fanta", price: 2.50, img: "https://images.unsplash.com/photo-1588854337236-f82ab8f894d9?auto=format&fit=crop&w=600&q=80" },
+      { name: "Coca-Cola", price: 2.50, img: "https://images.unsplash.com/photo-1617814071590-d3a20cc0ed3f?auto=format&fit=crop&w=600&q=80" },
+      { name: "Ginger Ale", price: 2.50, img: "https://images.unsplash.com/photo-1602751581742-c442bdc4d8e8?auto=format&fit=crop&w=600&q=80" },
+      { name: "Sprite", price: 2.50, img: "https://images.unsplash.com/photo-1584270354949-1e80f5bc4d1d?auto=format&fit=crop&w=600&q=80" },
+      { name: "Malta", price: 3.00, img: "https://images.unsplash.com/photo-1612641963844-b2694f3a8486?auto=format&fit=crop&w=600&q=80" },
+      { name: "Water", price: 1.50, img: "https://images.unsplash.com/photo-1587825140708-8a21f1f01373?auto=format&fit=crop&w=600&q=80" },
+      { name: "Apple Juice", price: 2.50, img: "https://images.unsplash.com/photo-1615475700940-5b5b4d3e1e6b?auto=format&fit=crop&w=600&q=80" },
+      { name: "Orange Juice", price: 2.50, img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
+      { name: "Pineapple Juice", price: 2.50, img: "https://images.unsplash.com/photo-1582719478148-fbc97b0b1d1d?auto=format&fit=crop&w=600&q=80" },
+      { name: "Iced Tea", price: 2.50, img: "https://images.unsplash.com/photo-1590080876635-d91f428b5a57?auto=format&fit=crop&w=600&q=80" }
+    ];
+
+    const cart = [];
+
+    function renderItems(items, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      items.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "menu-item";
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <div class="menu-content">
+            <h4>${item.name}</h4>
+            <span>$${item.price.toFixed(2)}</span>
+            <div class="quantity-selector" style="margin-top:10px;">
+              <label for="qty-${containerId}-${item.name}">Qty: </label>
+              <input id="qty-${containerId}-${item.name}" type="number" value="1" min="1" />
+            </div>
+            <button class="add-to-cart-btn" style="margin-top:10px; padding: 8px 12px; background:#d35400; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+              Add to Cart
+            </button>
           </div>
-          <button class="add-to-cart-btn" onclick="addToCart('${item.name}', ${item.price}, 'qty-${item.name.replace(/\s+/g, '')}')">Add to Cart</button>
-        </div>
-      `;
-      container.appendChild(div);
-    });
-  }
-
-  function addToCart(name, price, qtyId) {
-    const qtyInput = document.getElementById(qtyId);
-    const qty = parseInt(qtyInput.value);
-    if(qty < 1 || isNaN(qty)) {
-      alert("Please enter a valid quantity (1 or more).");
-      return;
+        `;
+        const btn = div.querySelector(".add-to-cart-btn");
+        btn.addEventListener("click", () => {
+          const qty = parseInt(div.querySelector("input").value);
+          addToCart(item.name, item.price, qty);
+        });
+        container.appendChild(div);
+      });
     }
 
-    const existingIndex = cart.findIndex(item => item.name === name);
-    if (existingIndex > -1) {
-      cart[existingIndex].qty += qty;
-    } else {
-      cart.push({ name, price, qty });
+    function addToCart(name, price, qty) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ name, price, qty });
+      }
+      updateCart();
     }
-    updateCart();
-    showAddConfirmation();
-  }
 
-  function updateCart() {
-    const cartList = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
-    cartList.innerHTML = "";
-    let total = 0;
-    cart.forEach(item => {
-      total += item.price * item.qty;
-      const li = document.createElement("li");
-      li.textContent = `${item.qty} x ${item.name} - $${(item.price * item.qty).toFixed(2)}`;
-      cartList.appendChild(li);
-    });
-    cartTotal.textContent = total.toFixed(2);
-  }
-
-  function clearCart() {
-    cart = [];
-    updateCart();
-  }
-
-  function checkoutCart() {
-    if(cart.length === 0) {
-      alert("Your cart is empty!");
-      return;
+    function updateCart() {
+      const cartList = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      cartList.innerHTML = "";
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.qty;
+        const li = document.createElement("li");
+        li.textContent = `${item.qty} x ${item.name} - $${(item.price * item.qty).toFixed(2)}`;
+        cartList.appendChild(li);
+      });
+      cartTotal.textContent = total.toFixed(2);
     }
-    alert("Thank you for your order! Total: $" + document.getElementById("cart-total").textContent);
-    clearCart();
-  }
 
-  function showAddConfirmation() {
-    const confirmation = document.createElement("div");
-    confirmation.style.position = "fixed";
-    confirmation.style.top = "20px";
-    confirmation.style.left = "50%";
-    confirmation.style.transform = "translateX(-50%)";
-    confirmation.style.background = "#27ae60";
-    confirmation.style.color = "white";
-    confirmation.style.padding = "10px 20px";
-    confirmation.style.borderRadius = "5px";
-    confirmation.style.boxShadow = "0 0 10px rgba(0,0,0,0.3)";
-    confirmation.style.zIndex = "10000";
-    confirmation.textContent = "Item added to cart!";
-    document.body.appendChild(confirmation);
-    setTimeout(() => {
-      confirmation.remove();
-    }, 2000);
-  }
+    function showPage(pageId) {
+      const pages = ['home', 'about', 'menu', 'contact', 'policies'];
+      pages.forEach(id => {
+        document.getElementById(id).style.display = (id === pageId) ? 'block' : 'none';
+      });
+      window.scrollTo(0, 0);
+    }
 
-  // Initial render
-  renderItems(menuItems, "menu-section");
-  renderItems(drinks, "drink-section");
-</script>
+    // Initial render
+    renderItems(menuItems, "menu-section");
+    renderItems(drinks, "drink-section");
+  </script>
 
+  <div id="cart" style="position:fixed; bottom:20px; right:20px; background:white; padding:15px; border:1px solid #ddd; box-shadow:0 0 10px rgba(0,0,0,0.2); width:280px; max-height:300px; overflow-y:auto;">
+    <h3>Shopping Cart</h3>
+    <ul id="cart-items" style="list-style:none; padding-left:0; margin:0;"></ul>
+    <div style="font-weight:bold; margin-top:10px;">Total: $<span id="cart-total">0.00</span></div>
+  </div>
+
+  <footer>
+    &copy; 2025 SamSonRepas Inc. All rights reserved.
+  </footer>
 </body>
 </html>
