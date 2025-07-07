@@ -2,133 +2,378 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SamSonRepas Inc.</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: #fffaf0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 250, 240, 0.85);
+      z-index: -1;
     }
     header {
       background-color: #d35400;
       color: white;
-      padding: 20px;
+      padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     nav {
-      background: #f39c12;
-      text-align: center;
-      padding: 10px 0;
+      background: #e67e22;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f9ca24;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem 4rem;
     }
     section {
-      padding: 20px;
+      margin-bottom: 3rem;
     }
-    .menu-download {
-      display: block;
-      text-align: center;
-      margin: 20px auto;
-      background: #27ae60;
+    h2 {
+      margin-bottom: 1rem;
+      color: #d35400;
+      border-bottom: 2px solid #d35400;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+    h3 {
+      margin-top: 1.5rem;
+      color: #e67e22;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .button {
+      background-color: #27ae60;
       color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      width: fit-content;
-      border-radius: 5px;
-    }
-    .map {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .contact-form button {
-      padding: 10px 20px;
-      background-color: #d35400;
-      color: white;
+      padding: 0.8rem 1.5rem;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
     }
-    footer {
-      background: #d35400;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      position: relative;
-      bottom: 0;
+    .button:hover {
+      background-color: #2ecc71;
+    }
+    table {
       width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    thead tr {
+      background-color: #d35400;
+      color: white;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f3ef;
+    }
+    tbody tr {
+      border-bottom: 1px solid #ddd;
+    }
+    /* Testimonials slideshow */
+    .testimonials {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      background: #f7f1e1;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-style: italic;
+      color: #555;
+      min-height: 120px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .slide {
+      display: none;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide.active {
+      display: block;
+      position: relative;
+      opacity: 1;
+    }
+    .slide p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+    /* Contact form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+    }
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    button[type="submit"] {
+      background-color: #d35400;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    button[type="submit"]:hover {
+      background-color: #e67e22;
+    }
+    #form-status {
+      font-weight: 600;
+      margin-top: 0.5rem;
+      color: green;
+    }
+    /* Map */
+    .map-container {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      main {
+        margin: 1rem;
+      }
+      form {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>SamSonRepas Inc.</h1>
-    <p>Delicious meals with a touch of home</p>
-  </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#contact">Contact</a>
-    <a href="#location">Location</a>
-  </nav>
+<header>
+  <h1>SamSonRepas Inc.</h1>
+  <p>Delicious meals with a touch of home</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#menu">Menu</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="#location">Location</a>
+</nav>
+
+<main>
+  <section id="home">
+    <h2>Welcome to SamSonRepas</h2>
+    <p>Your go-to place for authentic African and Canadian dishes, freshly prepared with love and quality ingredients. Whether it’s a family gathering or a quick meal, we’ve got you covered!</p>
+  </section>
 
   <section id="about">
     <h2>About Us</h2>
-    <p>At SamSonRepas Inc., we serve freshly cooked meals inspired by traditional recipes and community love. Perfect for any occasion — we’re here to serve you.</p>
+    <p>
+      SamSonRepas Inc. was founded by Christopher Samson, a passionate food enthusiast with years of experience in the food industry. Christopher’s journey began at Burger King, where he gained valuable insights into fast-paced restaurant operations, customer service excellence, and the importance of consistency and quality.
+    </p>
+    <p>
+      Inspired by his heritage and a deep love for African cuisine, Christopher traveled to Africa to immerse himself in the rich culinary traditions of the continent. During his travels, he learned authentic cooking techniques and recipes firsthand, deepening his appreciation for the vibrant flavors and cultural significance of African food.
+    </p>
+    <p>
+      His passion is also fueled by his wife, who is of African descent, and whose family recipes and traditions inspire many of the dishes served at SamSonRepas Inc. Together, they blend family heritage and professional experience to bring delicious, comforting meals to their community.
+    </p>
+    <p>
+      At SamSonRepas, we also celebrate the multicultural spirit of Canada by including classic Canadian favorites like juicy steaks, hearty poutine, and sweet butter tarts on our menu. This unique combination of African and Canadian cuisines allows us to offer a diverse dining experience that caters to many tastes.
+    </p>
+    <p>
+      Christopher believes food is more than nourishment — it’s a way to connect people, celebrate culture, and share stories. With SamSonRepas, he offers dishes made from fresh, local ingredients that feel like home.
+    </p>
+    <p>
+      Thanks to Christopher’s dedication and the support of his team, SamSonRepas has become a beloved community spot known for authentic flavors and warm service. Christopher looks forward to welcoming you and sharing the tastes of Africa and Canada with every meal.
+    </p>
   </section>
 
   <section id="menu">
-    <h2>Menu</h2>
-    <p>Check out our delicious offerings in the PDF below:</p>
-    <a class="menu-download" href="menu.pdf" download>Download Our Menu (PDF)</a>
+    <h2>Our Menu</h2>
+    <p>Explore our delicious selection of authentic African and Canadian dishes, freshly prepared for you.</p>
+
+    <h3>Starters</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Dish</th>
+          <th style="text-align: right;">Price (CAD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Plantain Fritters (Akara)</td><td style="text-align: right;">$7.50</td></tr>
+        <tr><td>Meat Pie</td><td style="text-align: right;">$8.50</td></tr>
+        <tr><td>Pepper Soup (Spicy Broth)</td><td style="text-align: right;">$9.00</td></tr>
+        <tr><td>Maple Glazed Bacon Bites</td><td style="text-align: right;">$9.50</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Main Dishes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Dish</th>
+          <th style="text-align: right;">Price (CAD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Jollof Rice with Chicken</td><td style="text-align: right;">$14.00</td></tr>
+        <tr><td>Egusi Soup with Pounded Yam</td><td style="text-align: right;">$17.00</td></tr>
+        <tr><td>Suya (Spicy Grilled Beef Skewers)</td><td style="text-align: right;">$13.00</td></tr>
+        <tr><td>Fufu with Light Soup</td><td style="text-align: right;">$16.50</td></tr>
+        <tr><td>Bitterleaf Soup with Eba</td><td style="text-align: right;">$15.50</td></tr>
+        <tr><td>Piri Piri Chicken</td><td style="text-align: right;">$18.00</td></tr>
+        <tr><td>Grilled Canadian Steak with Herb Butter</td><td style="text-align: right;">$22.00</td></tr>
+        <tr><td>Poutine (Fries with Cheese Curds & Gravy)</td><td style="text-align: right;">$12.00</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Desserts</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Dish</th>
+          <th style="text-align: right;">Price (CAD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Malva Pudding</td><td style="text-align: right;">$8.00</td></tr>
+        <tr><td>Chin Chin (Crunchy Pastry)</td><td style="text-align: right;">$7.50</td></tr>
+        <tr><td>Koeksisters</td><td style="text-align: right;">$7.00</td></tr>
+        <tr><td>Butter Tarts</td><td style="text-align: right;">$6.50</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Drinks</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Drink</th>
+          <th style="text-align: right;">Price (CAD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Zobo (Hibiscus Drink)</td><td style="text-align: right;">$5.00</td></tr>
+        <tr><td>Palm Wine</td><td style="text-align: right;">$7.00</td></tr>
+        <tr><td>Chapman</td><td style="text-align: right;">$6.50</td></tr>
+        <tr><td>Ginger Beer</td><td style="text-align: right;">$5.50</td></tr>
+        <tr><td>Craft Canadian Beer</td><td style="text-align: right;">$7.50</td></tr>
+      </tbody>
+    </table>
+
+    <a class="button" href="menu.pdf" download>Download Full Menu (PDF)</a>
   </section>
 
-  <section id="testimonials">
-    <h2>Reviews</h2>
-    <p>"Best food I've had in a long time!" - Marie T.</p>
-    <p>"Always fresh, flavorful, and affordable." - Daniel B.</p>
-    <p>"The jollof rice is top-tier. Highly recommend!" - Amina K.</p>
+  <section id="reviews" class="testimonials">
+    <div class="slide active"><p>"Best food I've had in a long time! Highly recommend their jollof rice."</p></div>
+    <div class="slide"><p>"Always fresh, flavorful, and affordable. Friendly service too!"</p></div>
+    <div class="slide"><p>"Great place for authentic meals. Feels like home."</p></div>
+    <div class="slide"><p>"The staff are welcoming and the atmosphere is fantastic."</p></div>
+    <div class="slide"><p>"I love the traditional recipes—they remind me of family dinners."</p></div>
+    <div class="slide"><p>"Perfect spot for celebrations and casual meals alike."</p></div>
+    <div class="slide"><p>"High-quality ingredients and amazing flavors every time."</p></div>
+    <div class="slide"><p>"My go-to place for African and Canadian cuisine in Gatineau!"</p></div>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <form class="contact-form">
+    <p><strong>Email:</strong> <a href="mailto:samsonrepas@hotmail.com">samsonrepas@hotmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+18008000000">1-800-800-0000</a></p>
+    <form id="contact-form">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
+    <p id="form-status"></p>
   </section>
 
-  <section id="location" class="map">
-    <h2>Our Location</h2>
-    <p>Visit us today!</p>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!..." 
-      width="300" 
-      height="200" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy">
-    </iframe>
+  <section id="location" class="map-container">
+    <h2>Find Us Here</h2>
+    <p>142 Rue Saint-Redempteur, Gatineau, QC J8X 2R7</p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.963143398144!2d-75.72001368452623!3d45.45825137910162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce05b5d7e2f9ef%3A0x2349d77e2e414c2!2s142%20Rue%20Saint-Redempteur%2C%20Gatineau%2C%20QC%20J8X%202R7%2C%20Canada!5e0!3m2!1sen!2sus!4v1699254000000!5m2!1sen!2sus"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
   </section>
+</main>
 
-  <footer>
-    <p>© 2025 SamSonRepas Inc. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+<script>
+  // Simple form submission handler (demo only)
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    status.textContent = 'Thanks for your message! We will get back to you soon.';
+    form.reset();
+  });
+
+ 
