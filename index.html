@@ -9,193 +9,106 @@
       font-family: Arial, sans-serif;
       margin: 0; padding: 0;
       background: #fdfdfd;
-      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #333;
     }
     header {
-      background: rgba(211, 84, 0, 0.9);
+      background: #d35400;
       color: white;
       padding: 20px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
     }
     header h1 {
       margin: 0;
       font-size: 2.5rem;
       font-weight: bold;
+      display: inline-block;
       vertical-align: middle;
     }
     header img.logo {
-      height: 60px;
+      height: 50px;
       vertical-align: middle;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      margin-left: 15px;
     }
     nav {
-      background: rgba(243, 156, 18, 0.9);
+      background: #f39c12;
       padding: 10px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 80px;
-      z-index: 998;
     }
     nav a {
-      margin: 0 18px;
+      margin: 0 15px;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.15rem;
-      transition: color 0.3s ease;
+      font-size: 1.1rem;
+      cursor: pointer;
     }
-    nav a:hover, nav a.active {
-      color: #b03e00;
+    nav a:hover {
       text-decoration: underline;
     }
     section {
-      background: rgba(255, 255, 255, 0.92);
-      padding: 40px 30px;
+      padding: 40px 20px;
       max-width: 1100px;
-      margin: 40px auto 60px auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      margin: auto;
     }
     h2 {
       color: #d35400;
       margin-bottom: 20px;
-      border-bottom: 3px solid #d35400;
-      padding-bottom: 7px;
-      font-weight: 700;
-    }
-    p.long-text {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
-    /* Home Video */
-    .home-video {
-      width: 100%;
-      max-width: 720px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      margin: 25px auto 40px auto;
-      display: block;
-    }
-    /* Reviews */
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 22px;
-    }
-    .review {
-      background: #fff7ed;
-      border: 1px solid #f0c27b;
-      border-radius: 12px;
-      padding: 18px 22px;
-      box-shadow: 0 0 12px rgba(211, 84, 0, 0.3);
-      font-style: italic;
-      font-size: 1rem;
-      color: #5a3e1b;
-      line-height: 1.5;
-    }
-    .review strong {
-      display: block;
-      margin-bottom: 8px;
-      color: #b03e00;
-      font-size: 1.2rem;
-      font-style: normal;
-    }
-    /* About Us Image */
-    .about-image {
-      width: 100%;
-      max-width: 600px;
-      display: block;
-      margin: 25px auto 30px auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      object-fit: cover;
-    }
-    /* Menu */
-    .menu-intro {
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-      font-weight: 500;
-      color: #663300;
+      border-bottom: 2px solid #d35400;
+      padding-bottom: 5px;
     }
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
     }
     .menu-item {
       background: #fff;
       border: 1px solid #ddd;
-      border-radius: 14px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 8px rgba(0,0,0,0.12);
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.25s ease;
-    }
-    .menu-item:hover {
-      transform: scale(1.04);
-      box-shadow: 0 0 14px rgba(211, 84, 0, 0.5);
     }
     .menu-item img {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      border-bottom: 1px solid #ddd;
     }
     .menu-content {
-      padding: 15px 18px 22px 18px;
-      text-align: center;
+      padding: 15px;
     }
     .menu-content h4 {
-      margin: 0 0 12px 0;
-      font-size: 1.3rem;
-      color: #b03e00;
-      font-weight: 700;
+      margin: 0 0 10px;
+      font-size: 1.2rem;
     }
     .menu-content span {
       color: #d35400;
       font-weight: bold;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
-    /* Quantity & Button */
     .quantity-selector {
-      margin-top: 12px;
+      margin-top: 10px;
     }
     .quantity-selector input {
-      width: 55px;
-      padding: 6px;
+      width: 50px;
+      padding: 5px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      text-align: center;
     }
     .add-to-cart-btn {
-      margin-top: 14px;
-      padding: 10px 15px;
+      margin-top: 10px;
+      padding: 8px 12px;
       background-color: #d35400;
       color: white;
       border: none;
-      border-radius: 7px;
+      border-radius: 5px;
       cursor: pointer;
       width: 100%;
-      font-weight: 700;
+      font-weight: bold;
       font-size: 1rem;
-      transition: background-color 0.3s ease;
     }
     .add-to-cart-btn:hover {
       background-color: #b03e00;
@@ -203,109 +116,78 @@
     /* Cart */
     #cart {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
+      bottom: 20px;
+      right: 20px;
       background: white;
-      padding: 18px 20px;
+      padding: 15px;
       border: 1px solid #ddd;
-      box-shadow: 0 0 14px rgba(0,0,0,0.25);
-      width: 330px;
-      max-height: 380px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 320px;
+      max-height: 350px;
       overflow-y: auto;
-      z-index: 1100;
-      border-radius: 12px;
+      z-index: 1000;
+      border-radius: 10px;
     }
     #cart h3 {
       margin-top: 0;
       font-size: 1.5rem;
       color: #d35400;
-      text-align: center;
-      font-weight: 700;
-      margin-bottom: 15px;
     }
     #cart ul {
       list-style: none;
       padding-left: 0;
       margin: 0;
-      max-height: 220px;
-      overflow-y: auto;
     }
     #cart ul li {
       margin-bottom: 10px;
       font-weight: 600;
-      border-bottom: 1px solid #f0c27b;
-      padding-bottom: 8px;
-      color: #5a3e1b;
     }
     #cart-total {
-      font-weight: 800;
-      font-size: 1.3rem;
-      margin-top: 14px;
-      color: #b03e00;
-      text-align: center;
-    }
-    /* Contact Form */
-    form label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: #663300;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 18px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: vertical;
-    }
-    form button {
-      background-color: #d35400;
-      color: white;
-      font-weight: 700;
-      font-size: 1.15rem;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    form button:hover {
-      background-color: #b03e00;
-    }
-    #form-status {
+      font-weight: bold;
+      font-size: 1.2rem;
       margin-top: 10px;
-      font-weight: 700;
-      color: green;
-      text-align: center;
+      color: #d35400;
+    }
+    /* Reviews */
+    .review {
+      background: #fff7ed;
+      border: 1px solid #f0c27b;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 5px rgba(211, 84, 0, 0.2);
+    }
+    .review strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #b03e00;
+      font-size: 1.1rem;
+    }
+    /* About us & Policies text */
+    .long-text {
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #333;
     }
     /* Footer */
     footer {
       background: #d35400;
       color: white;
       text-align: center;
-      padding: 16px 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-size: 1.1rem;
+      padding: 15px 10px;
       margin-top: 40px;
-      box-shadow: 0 -3px 8px rgba(0,0,0,0.15);
+      font-weight: bold;
     }
     /* Responsive */
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
       nav a {
         display: block;
-        margin: 12px 0;
+        margin: 10px 0;
       }
       #cart {
         width: 90%;
         right: 5%;
         left: 5%;
-      }
-      .menu-grid {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -317,58 +199,57 @@
   </header>
 
   <nav>
-    <a href="#" id="nav-home" onclick="showPage('home');return false;" class="active">Home</a>
-    <a href="#" id="nav-about" onclick="showPage('about');return false;">About Us</a>
-    <a href="#" id="nav-menu" onclick="showPage('menu');return false;">Menu</a>
-    <a href="#" id="nav-contact" onclick="showPage('contact');return false;">Contact Us</a>
-    <a href="#" id="nav-policies" onclick="showPage('policies');return false;">Terms & Policies</a>
+    <a href="#" onclick="showPage('home'); return false;">Home</a>
+    <a href="#" onclick="showPage('about'); return false;">About Us</a>
+    <a href="#" onclick="showPage('menu'); return false;">Menu</a>
+    <a href="#" onclick="showPage('contact'); return false;">Contact Us</a>
+    <a href="#" onclick="showPage('policies'); return false;">Terms & Policies</a>
   </nav>
 
   <!-- Home Page -->
   <section id="home">
     <h2>Welcome to SamSonRepas Inc.</h2>
     <p class="long-text">
-      Experience the authentic taste of African cuisine blended with Canadian favorites right here in Gatineau, QC. Our founder Christopher Samson combines years of food service expertise with passion and a love for tradition, bringing you the most flavorful and heartwarming dishes. From spicy Suya skewers to comforting Jollof rice, every bite tells a story of heritage and dedication. We are committed to using fresh, local ingredients while honoring the rich culinary traditions of Africa and Canada.
+      Experience the authentic taste of African cuisine blended with Canadian favorites in the heart of Gatineau, QC. Our founder Christopher Samson brings years of experience from working at Burger King and has traveled extensively across Africa to master traditional dishes. With a wife of African descent inspiring our flavors, we proudly serve a menu that celebrates rich heritage and fresh local ingredients.
     </p>
-
-    <video controls class="home-video" poster="https://images.unsplash.com/photo-1571091718767-5af3c6f0e028?auto=format&fit=crop&w=720&q=80" preload="metadata">
+    <video controls width="100%" style="max-width:700px; border-radius:10px; margin-top:20px;">
       <source src="https://cdn.videvo.net/videvo_files/video/free/2017-06/small_watermarked/170530_01_Food_02_preview.webm" type="video/webm" />
       Your browser does not support the video tag.
     </video>
 
-    <h2>What Our Customers Say</h2>
-    <div class="reviews">
+    <h2 style="margin-top:40px;">What Our Customers Say</h2>
+    <div>
       <div class="review">
         <strong>Sarah M.</strong>
-        <p>"I have been a loyal customer for years. The Jollof Rice is outstanding, and the hospitality at SamSonRepas is unmatched. Truly feels like home away from home."</p>
+        <p>I have been a loyal customer for years. The Jollof Rice is outstanding, and the hospitality at SamSonRepas is unmatched. Truly feels like home away from home.</p>
       </div>
       <div class="review">
         <strong>David T.</strong>
-        <p>"The mix of African and Canadian dishes is perfectly balanced. The Maple-Glazed Salmon is a must-try! Highly recommend to anyone visiting Gatineau."</p>
+        <p>The mix of African and Canadian dishes is perfectly balanced. The Maple-Glazed Salmon is a must-try! Highly recommend to anyone visiting Gatineau.</p>
       </div>
       <div class="review">
         <strong>Linda K.</strong>
-        <p>"Fantastic food and great service. The Suya spices are authentic and the portions generous. Will definitely come back soon."</p>
+        <p>Fantastic food and great service. The Suya spices are authentic and the portions generous. Will definitely come back soon.</p>
       </div>
       <div class="review">
         <strong>Michael B.</strong>
-        <p>"From the Plantain Fritters to the Poutine, everything tastes fresh and well prepared. A great place to enjoy diverse flavors."</p>
+        <p>From the Plantain Fritters to the Poutine, everything tastes fresh and well prepared. A great place to enjoy diverse flavors.</p>
       </div>
       <div class="review">
         <strong>Amina O.</strong>
-        <p>"I love the Egusi Soup and the warm atmosphere. This place brings a wonderful piece of African culture to Canada."</p>
+        <p>I love the Egusi Soup and the warm atmosphere. This place brings a wonderful piece of African culture to Canada.</p>
       </div>
       <div class="review">
         <strong>Emma W.</strong>
-        <p>"The Fufu with Light Soup was delicious and authentic. The staff was friendly and the restaurant clean and inviting."</p>
+        <p>The Fufu with Light Soup was delicious and authentic. The staff was friendly and the restaurant clean and inviting.</p>
       </div>
       <div class="review">
         <strong>John D.</strong>
-        <p>"Great spot for trying something new! The Canadian Poutine here is also top-notch and the prices are reasonable."</p>
+        <p>Great spot for trying something new! The Canadian Poutine here is also top-notch and the prices are reasonable.</p>
       </div>
       <div class="review">
         <strong>Grace L.</strong>
-        <p>"Excellent service and a beautiful blend of African and Canadian cuisine. The menu has something for everyone."</p>
+        <p>Excellent service and a beautiful blend of African and Canadian cuisine. The menu has something for everyone.</p>
       </div>
     </div>
   </section>
@@ -376,23 +257,16 @@
   <!-- About Us -->
   <section id="about" style="display:none;">
     <h2>About Us</h2>
-    <img src="https://images.unsplash.com/photo-1543352634-78b04a5c5bd7?auto=format&fit=crop&w=800&q=80" alt="Fish and Steak" class="about-image" />
     <p class="long-text">
-      Christopher Samson, our founder, brings over a decade of experience in food service and hospitality. His journey began at Burger King in Canada and blossomed through extensive travels across Africa, immersing himself in authentic culinary traditions and recipes. Inspired by his African-descended wife and a passion for bringing people together through food, SamSonRepas Inc. was created to celebrate the rich flavors of African and Canadian cuisines. Our mission is to provide a warm and welcoming environment where diverse communities can enjoy meals crafted with love, fresh ingredients, and respect for tradition.
-    </p>
-    <p class="long-text">
-      We pride ourselves on quality, authenticity, and exceptional customer service. Whether you're craving spicy Suya skewers or comforting Canadian Poutine, our menu is designed to offer something special for every palate. Join us to taste a delicious fusion of cultures and experience the heart of SamSonRepas Inc.
+      Christopher Samson, our founder, brings over a decade of food service experience, having worked at Burger King in Canada. His passion for food led him to travel extensively across Africa, immersing himself in the culinary traditions and mastering authentic recipes. Inspired by his African-descended wife, SamSonRepas Inc. was born to celebrate the rich flavors and culture of Africa while embracing Canadian favorites. Our mission is to provide a welcoming space where diverse communities can come together and enjoy exceptional meals crafted with love and care.
     </p>
   </section>
 
   <!-- Menu -->
   <section id="menu" style="display:none;">
     <h2>Menu</h2>
-    <p class="menu-intro">
-      Our menu offers a diverse range of dishes that blend authentic African flavors with beloved Canadian favorites. Each meal is carefully prepared using fresh, high-quality ingredients and traditional recipes. Whether you're a longtime fan or new to these flavors, you'll find something to delight your taste buds.
-    </p>
+    <p class="long-text">Explore our carefully crafted menu featuring authentic African dishes and beloved Canadian favorites, all made from fresh ingredients to satisfy every palate.</p>
     <div class="menu-grid" id="menu-section"></div>
-
     <h2 style="margin-top:40px;">Drinks</h2>
     <div class="menu-grid" id="drink-section"></div>
   </section>
@@ -400,29 +274,187 @@
   <!-- Contact Us -->
   <section id="contact" style="display:none;">
     <h2>Contact Us</h2>
-    <p class="long-text">
-      We’d love to hear from you! Whether you have questions, want to provide feedback, or are interested in catering services, please get in touch with us using the form below or the contact details.
-    </p>
+    <p>If you have any questions, feedback, or would like to place an order, please reach out to us using the form below or via our contact details.</p>
+    <form id="contact-form" style="max-width: 600px; margin-bottom: 20px;">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" required style="width:100%; padding:8px; margin-bottom:10px;" /><br />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin-bottom:10px;" /><br />
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message" rows="4" required style="width:100%; padding:8px; margin-bottom:10px;"></textarea><br />
+      <button type="submit" style="background:#d35400; color:#fff; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">Send</button>
+    </form>
     <p>Email: <a href="mailto:samsonrepas@hotmail.com">samsonrepas@hotmail.com</a></p>
     <p>Phone: <a href="tel:18008000000">1-800-800-0000</a></p>
     <p>Address: 142 Rue Saint-Redempteur, Gatineau, QC J8X 2R7</p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.655011690016!2d-75.733329384444!3d45.482820979100875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce061c9b7a8a17%3A0x2c72c12b949e0f59!2s142%20Rue%20Saint-Redempteur%2C%20Gatineau%2C%20QC%20J8X%202R7!5e0!3m2!1sen!2sca!4v1688681704131!5m2!1sen!2sca"
+      width="100%"
+      height="300"
+      style="border:0; border-radius: 10px;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </section>
 
-    <div style="width:100%;height:300px;margin: 20px 0; border-radius:12px; overflow:hidden; box-shadow: 0 6px 14px rgba(0,0,0,0.3);">
-      <iframe
-        width="100%"
-        height="100%"
-        frameborder="0"
-        style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=142+Rue+Saint-Redempteur,+Gatineau,+QC" allowfullscreen>
-      </iframe>
-    </div>
+  <!-- Terms & Policies -->
+  <section id="policies" style="display:none;">
+    <h2>Terms & Policies</h2>
+    <p class="long-text">
+      Welcome to SamSonRepas Inc. By accessing or using our services, you agree to comply with and be bound by the following terms and policies. These terms govern your use of our website, ordering services, and any transactions you make. Please read them carefully.
 
-    <form id="contact-form" onsubmit="submitContactForm(event)" style="max-width:480px;">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required placeholder="Your full name" />
+      <br /><br />
+      <strong>Ordering & Payment:</strong> All orders are subject to availability. Prices are subject to change without prior notice. Payment must be completed at the time of order. We accept various payment methods including credit cards and cash on delivery where applicable.
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required placeholder="Your email address" />
+      <br /><br />
+      <strong>Delivery & Pickup:</strong> We strive to deliver all orders promptly. Delivery times may vary based on location and demand. Customers are responsible for providing accurate delivery details. For pickup, please arrive within your scheduled window.
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required placeholder="Write your message
+      <br /><br />
+      <strong>Refunds & Cancellations:</strong> Refund requests will be evaluated on a case-by-case basis. Please contact us promptly if you experience any issues with your order. Cancellation of orders may be possible before preparation begins.
+
+      <br /><br />
+      <strong>Privacy:</strong> We respect your privacy and will not share your personal information with third parties without your consent, except as required by law. Please review our privacy practices for details.
+
+      <br /><br />
+      <strong>Food Allergies & Safety:</strong> We take food safety seriously. However, we cannot guarantee the absence of allergens due to shared kitchen environments. Customers with allergies should inform us before ordering.
+
+      <br /><br />
+      <strong>Changes to Terms:</strong> We reserve the right to update these terms at any time. Continued use of our services signifies acceptance of any changes.
+
+      <br /><br />
+      Thank you for choosing SamSonRepas Inc. We look forward to serving you delicious meals that bring the best of African and Canadian cuisine to your table.
+    </p>
+  </section>
+
+  <!-- Shopping Cart -->
+  <div id="cart">
+    <h3>Shopping Cart</h3>
+    <ul id="cart-items"></ul>
+    <div>Total: $<span id="cart-total">0.00</span></div>
+  </div>
+
+  <script>
+    const menuItems = [
+      { name: "Plantain Fritters (Akara)", price: 9.50, img: "https://images.unsplash.com/photo-1562967916-eb82221dfb3a?auto=format&fit=crop&w=600&q=80" },
+      { name: "Jollof Rice with Chicken", price: 16.50, img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" },
+      { name: "Egusi Soup with Pounded Yam", price: 19.00, img: "https://images.unsplash.com/photo-1576871337632-4ec1ec7c1874?auto=format&fit=crop&w=600&q=80" },
+      { name: "Suya (Spicy Grilled Beef Skewers)", price: 15.50, img: "https://images.unsplash.com/photo-1543352634-40d760e7f76a?auto=format&fit=crop&w=600&q=80" },
+      { name: "Fufu with Light Soup", price: 17.00, img: "https://images.unsplash.com/photo-1612911986315-bd511bb4f1c4?auto=format&fit=crop&w=600&q=80" },
+      { name: "Pounded Yam and Bitterleaf Soup", price: 18.00, img: "https://images.unsplash.com/photo-1608136547357-b0f979c7f342?auto=format&fit=crop&w=600&q=80" },
+      { name: "Canadian Poutine", price: 12.00, img: "https://images.unsplash.com/photo-1551628150-94bd9c8b94f4?auto=format&fit=crop&w=600&q=80" },
+      { name: "Maple-Glazed Salmon", price: 20.00, img: "https://images.unsplash.com/photo-1543352634-78b04a5c5bd7?auto=format&fit=crop&w=600&q=80" }
+    ];
+
+    const drinks = [
+      { name: "Fanta", price: 2.50, img: "https://images.unsplash.com/photo-1588854337236-f82ab8f894d9?auto=format&fit=crop&w=600&q=80" },
+      { name: "Coca-Cola", price: 2.50, img: "https://images.unsplash.com/photo-1617814071590-d3a20cc0ed3f?auto=format&fit=crop&w=600&q=80" },
+      { name: "Ginger Ale", price: 2.50, img: "https://images.unsplash.com/photo-1602751581742-c442bdc4d8e8?auto=format&fit=crop&w=600&q=80" },
+      { name: "Sprite", price: 2.50, img: "https://images.unsplash.com/photo-1576650242704-cf7e5057e3b9?auto=format&fit=crop&w=600&q=80" },
+      { name: "Water", price: 1.50, img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" },
+      { name: "Orange Juice", price: 3.00, img: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=80" },
+      { name: "Apple Juice", price: 3.00, img: "https://images.unsplash.com/photo-1590080877777-2197b13b870e?auto=format&fit=crop&w=600&q=80" },
+      { name: "Iced Tea", price: 2.75, img: "https://images.unsplash.com/photo-1562440499-ec8d3a597d8a?auto=format&fit=crop&w=600&q=80" },
+      { name: "Coffee", price: 2.75, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" },
+      { name: "Beer", price: 4.00, img: "https://images.unsplash.com/photo-1547045662-c4fdd1e70c16?auto=format&fit=crop&w=600&q=80" }
+    ];
+
+    const cart = [];
+
+    function renderMenu() {
+      const menuSection = document.getElementById('menu-section');
+      menuSection.innerHTML = '';
+      menuItems.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'menu-item';
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <div class="menu-content">
+            <h4>${item.name}</h4>
+            <span>$${item.price.toFixed(2)}</span>
+            <div class="quantity-selector">
+              <input type="number" min="1" value="1" id="qty-food-${index}" />
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(${index}, 'food')">Add to Cart</button>
+          </div>
+        `;
+        menuSection.appendChild(div);
+      });
+    }
+
+    function renderDrinks() {
+      const drinkSection = document.getElementById('drink-section');
+      drinkSection.innerHTML = '';
+      drinks.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'menu-item';
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <div class="menu-content">
+            <h4>${item.name}</h4>
+            <span>$${item.price.toFixed(2)}</span>
+            <div class="quantity-selector">
+              <input type="number" min="1" value="1" id="qty-drink-${index}" />
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(${index}, 'drink')">Add to Cart</button>
+          </div>
+        `;
+        drinkSection.appendChild(div);
+      });
+    }
+
+    function addToCart(index, type) {
+      let item;
+      if (type === 'food') {
+        item = menuItems[index];
+        var qty = parseInt(document.getElementById(`qty-food-${index}`).value) || 1;
+      } else {
+        item = drinks[index];
+        var qty = parseInt(document.getElementById(`qty-drink-${index}`).value) || 1;
+      }
+      const cartItemIndex = cart.findIndex(ci => ci.name === item.name);
+      if (cartItemIndex > -1) {
+        cart[cartItemIndex].quantity += qty;
+      } else {
+        cart.push({ name: item.name, price: item.price, quantity: qty });
+      }
+      updateCart();
+      alert(`${qty} x ${item.name} added to cart.`);
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        const li = document.createElement('li');
+        li.textContent = `${item.quantity} x ${item.name} - $${(item.price * item.quantity).toFixed(2)}`;
+        cartItems.appendChild(li);
+      });
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    // Navigation page show/hide logic
+    function showPage(pageId) {
+      const pages = ['home', 'about', 'menu', 'contact', 'policies'];
+      pages.forEach(p => {
+        document.getElementById(p).style.display = p === pageId ? 'block' : 'none';
+      });
+    }
+
+    // Contact form submit handling
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert(`Thank you, ${this.name.value}! Your message has been sent.`);
+      this.reset();
+    });
+
+    // Initialize
+    renderMenu();
+    renderDrinks();
+    showPage('home');
+  </script>
+</body>
+</html>
