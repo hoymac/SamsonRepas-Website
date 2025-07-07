@@ -95,6 +95,8 @@
     .cart ul {
       list-style: none;
       padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
     }
     .cart ul li {
       margin-bottom: 10px;
@@ -151,7 +153,7 @@
 
   <section id="reviews">
     <h2>Customer Reviews</h2>
-    <!-- You can add your reviews here or I can help build it too -->
+    <div id="reviews-list"></div>
   </section>
 
   <section id="contact">
@@ -174,29 +176,42 @@
 
   <script>
     const menuItems = [
-      { name: "Plantain Fritters (Akara)", price: 8.50, img: "https://images.unsplash.com/photo-1562967916-eb82221dfb3a" },
-      { name: "Jollof Rice with Chicken", price: 15.00, img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092" },
-      { name: "Egusi Soup with Pounded Yam", price: 18.00, img: "https://images.unsplash.com/photo-1576871337632-4ec1ec7c1874" },
-      { name: "Suya (Spicy Grilled Beef Skewers)", price: 14.00, img: "https://images.unsplash.com/photo-1543352634-40d760e7f76a" }
+      { name: "Plantain Fritters (Akara)", price: 9.50, img: "https://cdn.pixabay.com/photo/2018/01/04/08/14/plantain-3062524_1280.jpg" },
+      { name: "Jollof Rice with Chicken", price: 17.00, img: "https://cdn.pixabay.com/photo/2016/04/20/07/25/jollof-rice-1347888_1280.jpg" },
+      { name: "Egusi Soup with Pounded Yam", price: 20.00, img: "https://cdn.pixabay.com/photo/2017/05/07/22/24/food-2294818_1280.jpg" },
+      { name: "Suya (Spicy Grilled Beef Skewers)", price: 16.00, img: "https://cdn.pixabay.com/photo/2020/03/24/17/25/grilled-4969751_1280.jpg" },
+      { name: "Canadian Steak", price: 22.00, img: "https://cdn.pixabay.com/photo/2017/07/16/10/43/steak-2503173_1280.jpg" }
     ];
 
     const drinks = [
-      { name: "Fanta", price: 2.50, img: "https://images.unsplash.com/photo-1588854337236-f82ab8f894d9" },
-      { name: "Coca-Cola", price: 2.50, img: "https://images.unsplash.com/photo-1617814071590-d3a20cc0ed3f" },
-      { name: "Ginger Ale", price: 2.50, img: "https://images.unsplash.com/photo-1602751581742-c442bdc4d8e8" },
-      { name: "Sprite", price: 2.50, img: "https://images.unsplash.com/photo-1584270354949-1e80f5bc4d1d" },
-      { name: "Malta", price: 3.00, img: "https://images.unsplash.com/photo-1612641963844-b2694f3a8486" },
-      { name: "Water", price: 1.50, img: "https://images.unsplash.com/photo-1587825140708-8a21f1f01373" },
-      { name: "Apple Juice", price: 2.50, img: "https://images.unsplash.com/photo-1615475700940-5b5b4d3e1e6b" },
-      { name: "Orange Juice", price: 2.50, img: "https://images.unsplash.com/photo-1552664730-d307ca884978" },
-      { name: "Pineapple Juice", price: 2.50, img: "https://images.unsplash.com/photo-1582719478148-fbc97b0b1d1d" },
-      { name: "Iced Tea", price: 2.50, img: "https://images.unsplash.com/photo-1590080876635-d91f428b5a57" }
+      { name: "Fanta", price: 2.50, img: "https://cdn.pixabay.com/photo/2016/06/29/03/26/fanta-1485776_1280.jpg" },
+      { name: "Coca-Cola", price: 2.50, img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/coca-cola-1236193_1280.jpg" },
+      { name: "Ginger Ale", price: 2.50, img: "https://cdn.pixabay.com/photo/2017/01/23/15/00/drink-2004148_1280.jpg" },
+      { name: "Sprite", price: 2.50, img: "https://cdn.pixabay.com/photo/2017/04/01/09/16/sprite-2195279_1280.jpg" },
+      { name: "Malta", price: 3.00, img: "https://cdn.pixabay.com/photo/2017/03/27/14/59/malta-2175530_1280.jpg" },
+      { name: "Water", price: 1.50, img: "https://cdn.pixabay.com/photo/2016/03/27/22/16/water-1281386_1280.jpg" },
+      { name: "Apple Juice", price: 2.50, img: "https://cdn.pixabay.com/photo/2016/07/27/23/40/apple-1546797_1280.jpg" },
+      { name: "Orange Juice", price: 2.50, img: "https://cdn.pixabay.com/photo/2014/12/16/22/25/orange-570922_1280.jpg" },
+      { name: "Pineapple Juice", price: 2.50, img: "https://cdn.pixabay.com/photo/2016/01/09/18/27/pineapple-1136052_1280.jpg" },
+      { name: "Iced Tea", price: 2.50, img: "https://cdn.pixabay.com/photo/2016/07/24/21/26/ice-tea-1539184_1280.jpg" }
+    ];
+
+    const reviews = [
+      { name: "Rebecca N.", text: "I had the Jollof Rice and it was amazing! The flavors brought me right back to my trip to Nigeria. Highly recommend SamSonRepas!" },
+      { name: "Daniel K.", text: "Great mix of African and Canadian dishes. The Canadian steak was cooked perfectly, and the customer service was outstanding." },
+      { name: "Miriam T.", text: "The Egusi Soup is the best I've had outside Africa. So rich and comforting. Will be coming back weekly." },
+      { name: "Samuel L.", text: "Love the authentic taste of the Suya. Spicy, tender, and flavorful. This place is a hidden gem." },
+      { name: "Jessica P.", text: "Perfect atmosphere and delicious food. I tried the Plantain Fritters and they were crispy and just sweet enough." },
+      { name: "Mark D.", text: "Drinks selection is great. The Malta and Ginger Ale really complemented my meal." },
+      { name: "Angela M.", text: "Friendly staff and excellent dishes. The portion sizes are generous and worth every penny." },
+      { name: "Tunde A.", text: "I appreciate that they include Canadian favorites along with African cuisine. It makes the menu unique and inviting." }
     ];
 
     const cart = [];
 
     function renderItems(items, containerId) {
       const container = document.getElementById(containerId);
+      container.innerHTML = "";
       items.forEach(item => {
         const div = document.createElement("div");
         div.className = "menu-item";
@@ -212,8 +227,7 @@
             <button class="add-to-cart-btn">Add to Cart</button>
           </div>
         `;
-        const btn = div.querySelector(".add-to-cart-btn");
-        btn.addEventListener("click", () => {
+        div.querySelector(".add-to-cart-btn").addEventListener("click", () => {
           const qty = parseInt(div.querySelector("input").value);
           addToCart(item.name, item.price, qty);
         });
@@ -221,12 +235,30 @@
       });
     }
 
+    function renderReviews() {
+      const container = document.getElementById("reviews-list");
+      container.innerHTML = "";
+      reviews.forEach(r => {
+        const div = document.createElement("div");
+        div.style.marginBottom = "20px";
+        div.innerHTML = `
+          <strong>${r.name}</strong><br/>
+          <p>${r.text}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
     function addToCart(name, price, qty) {
-      cart.push({ name, price, qty });
+      // If item already in cart, increase qty
+      const existing = cart.find(i => i.name === name);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ name, price, qty });
+      }
       updateCart();
-      const conf = document.getElementById("confirmation");
-      conf.style.display = "block";
-      setTimeout(() => (conf.style.display = "none"), 2000);
+      showConfirmation();
     }
 
     function updateCart() {
@@ -243,18 +275,32 @@
       cartTotal.textContent = total.toFixed(2);
     }
 
-    function checkoutCart() {
-      alert("Thank you for your order! Total: $" + document.getElementById("cart-total").textContent);
-      clearCart();
-    }
-
     function clearCart() {
       cart.length = 0;
       updateCart();
     }
 
+    function checkoutCart() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert("Thank you for your order! We will contact you shortly.");
+      clearCart();
+    }
+
+    function showConfirmation() {
+      const conf = document.getElementById("confirmation");
+      conf.style.display = "block";
+      setTimeout(() => {
+        conf.style.display = "none";
+      }, 2000);
+    }
+
+    // Initialize
     renderItems(menuItems, "menu-section");
     renderItems(drinks, "drink-section");
+    renderReviews();
   </script>
 </body>
 </html>
