@@ -72,10 +72,33 @@
       background: #d35400;
       color: white;
       padding: 20px;
-      text-align: center;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
       border-radius: 8px;
       margin-bottom: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    header .logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+      color: white;  /* White text */
+    }
+
+    header p {
+      margin: 0 0 0 10px;
+      font-weight: normal;
+      color: white;
+      font-size: 1.1em;
     }
 
     nav {
@@ -264,6 +287,13 @@
         max-height: none;
         margin-bottom: 20px;
       }
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      header p {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
@@ -279,6 +309,7 @@
   <div id="content">
 
     <header>
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="SamSonRepas Logo" class="logo" />
       <h1>SamSonRepas Inc.</h1>
       <p>Authentic African & Canadian Cuisine</p>
     </header>
@@ -412,19 +443,19 @@
   function addToCart(name, price, qtyId) {
     const qtyInput = document.getElementById(qtyId);
     const qty = parseInt(qtyInput.value);
-    if (qty < 1 || isNaN(qty)) {
-      alert("Please enter a valid quantity.");
+    if(qty < 1 || isNaN(qty)) {
+      alert("Please enter a valid quantity (1 or more).");
       return;
     }
-    const existingItem = cart.find(item => item.name === name);
-    if (existingItem) {
-      existingItem.qty += qty;
+
+    const existingIndex = cart.findIndex(item => item.name === name);
+    if (existingIndex > -1) {
+      cart[existingIndex].qty += qty;
     } else {
       cart.push({ name, price, qty });
     }
     updateCart();
-    qtyInput.value = 1;
-    showConfirmation();
+    showAddConfirmation();
   }
 
   function updateCart() {
@@ -435,20 +466,10 @@
     cart.forEach(item => {
       total += item.price * item.qty;
       const li = document.createElement("li");
-      li.textContent = `${item.name} x${item.qty} - $${(item.price * item.qty).toFixed(2)}`;
+      li.textContent = `${item.qty} x ${item.name} - $${(item.price * item.qty).toFixed(2)}`;
       cartList.appendChild(li);
     });
     cartTotal.textContent = total.toFixed(2);
-  }
-
-  function checkoutCart() {
-    if (cart.length === 0) {
-      alert("Your cart is empty!");
-      return;
-    }
-    alert(`Thank you for your order! Total: $${document.getElementById("cart-total").textContent}`);
-    cart = [];
-    updateCart();
   }
 
   function clearCart() {
@@ -456,11 +477,21 @@
     updateCart();
   }
 
-  function showConfirmation() {
+  function checkoutCart() {
+    if(cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+    alert("Thank you for your order! Total: $" + document.getElementById("cart-total").textContent);
+    clearCart();
+  }
+
+  function showAddConfirmation() {
     const confirmation = document.createElement("div");
     confirmation.style.position = "fixed";
-    confirmation.style.bottom = "20px";
-    confirmation.style.right = "20px";
+    confirmation.style.top = "20px";
+    confirmation.style.left = "50%";
+    confirmation.style.transform = "translateX(-50%)";
     confirmation.style.background = "#27ae60";
     confirmation.style.color = "white";
     confirmation.style.padding = "10px 20px";
